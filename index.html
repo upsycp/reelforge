@@ -183,7 +183,12 @@ h2 em{font-style:normal;color:var(--acc)}
 .pclip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pclip::before{content:"";position:absolute;left:50%;top:50%;margin:-15px 0 0 -9px;border-left:24px solid var(--paper);border-top:15px solid transparent;border-bottom:15px solid transparent;animation:pulse 1.4s infinite}
 .pclip small{position:absolute;top:10px;left:10px;font-family:var(--f-mono);font-size:11px;font-weight:700;color:var(--paper);letter-spacing:.06em}
-.ptiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pbig{display:flex;align-items:baseline;gap:16px;line-height:1}
+.pbig b{font-family:var(--f-display);font-weight:800;font-size:96px;letter-spacing:-.04em;color:var(--butter)}
+.pbig span{font-family:var(--f-display);font-weight:700;font-size:30px;color:var(--paper)}
+.pbig em{font-style:normal;color:var(--coral)}
+.s11 .pclip{width:96px;height:150px}
+.ptiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .ptiles div{background:rgba(255,255,255,.07);border-radius:14px;padding:12px 14px}
 .ptiles b{font-family:var(--f-display);font-size:30px;display:block;color:var(--butter)}
 .ptiles small{font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C9C5F0}
@@ -554,16 +559,16 @@ h2 em{font-style:normal;color:var(--acc)}
       <h2>Don't take our word. <em>Watch.</em></h2>
     </div>
     <div class="abs panel">
-      <div class="p-meta"><i style="background:var(--mint)"></i>TVF pilot · results <span class="ph" style="font-size:12px;color:var(--butter)">placeholder data</span></div>
+      <div class="p-meta"><i style="background:var(--mint)"></i>The Vvaan · launch campaign · 25 Sep – 4 Oct</div>
+      <div class="pbig"><b>966K</b><span>views in <em>10 days</em></span></div>
+      <div class="ptiles">
+        <div><b>328</b><small>Clips posted</small></div>
+        <div><b>26</b><small>Accounts</small></div>
+        <div><b>241.6K</b><small>Top reel views</small></div>
+      </div>
       <div class="p-label">Sample clips</div>
       <div class="pclips">
         <div class="pclip"><small>CLIP 1</small></div><div class="pclip"><small>CLIP 2</small></div><div class="pclip"><small>CLIP 3</small></div><div class="pclip"><small>CLIP 4</small></div>
-      </div>
-      <div class="ptiles">
-        <div><b class="ph">[00M]</b><small>Pilot views</small></div>
-        <div><b class="ph">[000]</b><small>Clips posted</small></div>
-        <div><b class="ph">[00]</b><small>Accounts</small></div>
-        <div><b class="ph">[0 wks]</b><small>Pilot length</small></div>
       </div>
     </div>
   </section>
@@ -667,7 +672,7 @@ const COVER_CARDS = [
     `<div class="reel r-how">${['Send','Clip','Approve','Post'].map((t,i)=>`<div class="ic" style="top:${70+i*80}px;animation-delay:${i}s">${String(i+1).padStart(2,'0')} ${t}</div>`).join('')}${ui('@howto','send, clip, approve, post','6k')}</div>`,
     CAMPAIGNS,
     `<div class="reel r-seg">${[['OTT',30,80,'#FFC93C'],['Films',150,120,'#FF7A5C'],['Creators',30,190,'#4FD6A6'],['Brands',150,240,'#fff'],['Sports',30,300,'#FFC93C'],['News',150,350,'#FF7A5C']].map((c,i)=>`<span class="chip" style="left:${c[1]}px;top:${c[2]}px;background:${c[3]};animation-delay:${i*.3}s">${c[0]}</span>`).join('')}${ui('@foryou','built for your audience','7k')}</div>`,
-    `<div class="reel r-proof"><div class="slot"><div><i></i>DROP PILOT CLIP HERE</div></div>${ui('@tvfpilot','results from the TVF pilot','')}</div>`,
+    `<div class="reel r-proof"><div class="slot"><div><i></i>TOP REEL</div></div>${ui('@thevvaan','the clip that did 241.6K views','241K')}</div>`,
     `<div class="reel r-cta"><div class="conf">${many(14,i=>`<i style="left:${(i*19)%270}px;background:${['#3D2EF0','#FF7A5C','#16133F','#4FD6A6'][i%4]};animation-delay:${(i*.21)%2.6}s"></i>`)}</div><div class="gift"></div>${ui('@yourshow','episode 01, everywhere','∞')}</div>`
   ];
   const feed = document.getElementById('feed');
