@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="ReelForge by LCX: AI clipping and distribution that puts your content in every feed.">
 <meta property="og:title" content="ReelForge by LCX">
-<meta property="og:description" content="Your content, in every feed.">
+<meta property="og:description" content="AI clipping + distribution. Your content, in every feed.">
 <meta property="og:image" content="/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -79,14 +79,16 @@ h2 em{font-style:normal;color:var(--acc)}
 .slide.s1{z-index:auto}
 .s1 .title{left:0;top:22px;width:1600px;text-align:center;font-size:268px;line-height:.85;letter-spacing:-.05em;margin:0;z-index:10;color:var(--paper)}
 .s1 .title span{color:var(--butter)}
-.s1 .tag1{left:80px;top:670px;width:300px;margin:0;z-index:35;font-family:var(--f-display);font-weight:700;font-size:38px;line-height:1.05;letter-spacing:-.01em}
-.s1 .tag2{left:1240px;top:670px;width:280px;z-index:35;text-align:right;font-family:var(--f-mono);font-weight:700;font-size:17px;letter-spacing:.12em;text-transform:uppercase;line-height:1.7}
-.s1 .tag2 b{display:inline-block;background:var(--butter);color:var(--ink);padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.s1 .what{left:0;top:262px;width:1600px;margin:0;z-index:35;text-align:center;font-family:var(--f-display);font-weight:800;font-size:56px;line-height:1;letter-spacing:-.02em;color:var(--paper)}
+.s1 .what span{color:var(--coral)}
+.s1 .tag1{left:80px;top:690px;width:300px;margin:0;z-index:35;font-family:var(--f-display);font-weight:700;font-size:32px;line-height:1.08;letter-spacing:-.01em}
+.s1 .tag2{left:1240px;top:712px;width:280px;z-index:35;text-align:right;font-family:var(--f-mono);font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase}
+.s1 .tag2 b{display:inline-block;background:var(--butter);color:var(--ink);padding:6px 16px;border-radius:999px}
 #pedestal{position:absolute;left:280px;top:740px;width:1040px;height:400px;z-index:6;pointer-events:none;transform:translateY(440px);transition:transform .7s cubic-bezier(.6,0,.8,.3)}
 #stage[data-slide="1"] #pedestal{transform:none;transition:transform .65s cubic-bezier(.25,1.2,.4,1) .3s}
 #pedestal .side{position:absolute;left:0;right:0;top:115px;bottom:0;background:linear-gradient(90deg,#D9485F,#FF5C7A 42%,#E14E68 75%,#B83A55)}
 #pedestal .top{position:absolute;left:0;top:0;width:1040px;height:230px;border-radius:50%;background:radial-gradient(ellipse at 45% 40%,#86EBC9,#4FD6A6 58%,#33AE85);box-shadow:inset 0 -8px 0 rgba(0,0,0,.1)}
-#pedestal .shadow{position:absolute;left:420px;top:70px;width:200px;height:36px;border-radius:50%;background:rgba(22,19,63,.32);filter:blur(3px)}
+#pedestal .shadow{position:absolute;left:420px;top:100px;width:200px;height:36px;border-radius:50%;background:rgba(22,19,63,.32);filter:blur(3px)}
 .vb{position:absolute;left:0;top:0;pointer-events:none;opacity:0;will-change:transform,opacity}
 .vb.pill{height:46px;border-radius:23px;display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:0 16px;box-sizing:border-box;box-shadow:inset 0 -8px 0 rgba(0,0,0,.14), 0 0 0 3px #16133F}
 .vb.pill i{width:9px;height:9px;border-radius:50%;background:#16133F;opacity:.85}
@@ -114,6 +116,17 @@ h2 em{font-style:normal;color:var(--acc)}
 .statrow{display:flex;gap:18px;margin-top:30px;font-size:22px;flex-wrap:wrap}
 
 /* problem */
+.s6 h2{font-size:76px}
+.s6 .life{margin-top:26px;height:96px}
+.s6 .life .quiet{top:80px;font-size:19px}
+.why-l{margin-top:22px;font-family:var(--f-mono);font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px;max-width:900px}
+.why div{border:4px solid var(--ink);border-radius:20px;padding:16px 18px 14px;color:var(--ink);display:flex;flex-direction:column}
+.why div:nth-child(1){background:var(--paper)}.why div:nth-child(2){background:var(--coral)}.why div:nth-child(3){background:var(--butter)}
+.why b{font-family:var(--f-display);font-weight:800;font-size:52px;line-height:1;letter-spacing:-.03em}
+.why p{margin:8px 0 10px;font-size:18px;line-height:1.3}
+.why small{margin-top:auto;font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.why-end{margin:18px 0 0;font-size:21px;line-height:1.35;max-width:880px;font-weight:500}
 .life{margin-top:40px;max-width:820px;position:relative;height:120px}
 .life .bar{position:absolute;left:0;right:0;top:50px;height:22px;border-radius:999px;background:rgba(22,19,63,.15)}
 .life .fill{position:absolute;left:0;top:50px;height:22px;border-radius:999px;background:var(--coral);width:0}
@@ -125,7 +138,7 @@ h2 em{font-style:normal;color:var(--acc)}
 
 /* what */
 .s7 .colL{left:110px;top:96px;width:470px}
-.s7 .colL h2{font-size:80px}
+.s7 .colL h2{font-size:78px}
 .s7 .colR{left:1040px;top:300px;width:470px}
 .s7 .colR .lede{margin-top:0;font-size:29px}
 .tagline{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
@@ -189,10 +202,21 @@ h2 em{font-style:normal;color:var(--acc)}
 .segs i{display:inline-block;width:34px;height:34px;border-radius:10px;margin-bottom:12px}
 
 /* cta */
-.s12 .colL{left:110px;top:96px;width:480px}
-.s12 .colL h2{font-size:92px}
-.s12 .colR{left:1050px;top:150px;width:470px}
-.s12 .colR h2{font-size:80px;margin-top:0;color:var(--paper)}
+.s12 .colL{left:110px;top:220px;width:500px}
+.s12 .colL h2{font-size:104px;line-height:.92}
+.s12 .colL h2 em{color:var(--paper)}
+.s12 .colR{left:1010px;top:190px;width:540px}
+.s12 .colR .lede{margin-top:0;font-size:27px}
+.card{margin-top:30px;background:var(--ink);color:var(--paper);border-radius:26px;padding:24px 26px 22px;box-shadow:10px 12px 0 rgba(22,19,63,.22)}
+.slide.on .card{transform:rotate(-1.2deg)}
+.card .who{display:flex;gap:16px;align-items:center;padding-bottom:18px;border-bottom:2px dashed rgba(255,248,242,.25)}
+.card .av{width:64px;height:64px;border-radius:50%;background:var(--butter);color:var(--ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:26px;flex:none}
+.card .who b{display:block;font-family:var(--f-display);font-weight:800;font-size:32px;line-height:1}
+.card .who small{display:block;margin-top:6px;font-family:var(--f-mono);font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.card .row{display:grid;grid-template-columns:70px 1fr;gap:10px;align-items:baseline;margin-top:16px;font-size:20px;font-weight:500}
+.card .row small{font-family:var(--f-mono);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.65}
+.card .row span{overflow-wrap:anywhere}
+.card .row .em{font-size:18px;white-space:nowrap;letter-spacing:-.01em}
 .offer{display:inline-flex;align-items:center;gap:18px;margin-top:40px;background:var(--ink);color:var(--paper);border-radius:999px;padding:14px 32px 14px 14px;font-family:var(--f-display);font-weight:800;font-size:32px}
 .offer i{width:58px;height:58px;border-radius:50%;background:var(--butter);display:grid;place-items:center;font-style:normal;color:var(--ink);font-size:34px;animation:wiggle 1.6s infinite}
 .contact{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:10px 24px;font-size:24px}
@@ -410,10 +434,11 @@ h2 em{font-style:normal;color:var(--acc)}
   <div class="ghost" style="left:1465px;top:610px;--r:-9deg;--d:.56s"></div>
 
   <!-- 1 COVER · phone on a pedestal, bubbles orbiting -->
-  <section class="slide C s1" data-bg="ink" data-m="phone" data-p="650,268,0,.8">
+  <section class="slide C s1" data-bg="ink" data-m="phone" data-p="650,320,0,.74">
     <h1 class="abs title">Reel<span>Forge</span></h1>
+    <p class="abs what">AI clipping <span>+</span> distribution</p>
     <p class="abs tag1">Your content, in every feed.</p>
-    <div class="abs tag2"><b>by LCX</b><br>AI clipping<br>+ distribution</div>
+    <div class="abs tag2"><b>by LCX</b></div>
   </section>
 
   <!-- 2 ATTENTION · phone right -->
@@ -438,28 +463,9 @@ h2 em{font-style:normal;color:var(--acc)}
     </div>
   </section>
 
-  <!-- 4 MOAT · laptop -->
-  <section class="slide X s4" data-bg="ink" data-m="laptop" data-p="280,190,0,1">
-    <div class="abs top">
-      <div class="eyebrow"><b>03</b> Distribution is the moat</div>
-      <h2>More to watch. <em>Same hours</em> to watch it.</h2>
-    </div>
-    <div class="abs panel">
-      <div class="p-meta"><i></i>@reelforge · the shift</div>
-      <p class="p-desc">Attention isn't growing. The views, and the ad money, have moved into the feed. Whoever owns reach wins.</p>
-      <div class="p-label">Receipts</div>
-      <div class="receipts">
-        <div><b>6 hrs</b><p>a day is all the media time people have, and it isn't growing.</p><small>Deloitte, 2025</small></div>
-        <div><b>200B</b><p>YouTube Shorts views every day, up from 70B in 2024.</p><small>YouTube, 2025</small></div>
-        <div><b>64%</b><p>of India's digital ad revenue went to search and social in 2025.</p><small>FICCI-EY, 2026</small></div>
-      </div>
-      <div class="capbar">The winners won't be who makes the most content. <span>They'll be who gets seen the most.</span></div>
-    </div>
-  </section>
-
   <!-- 5 WHO WE ARE · phone left -->
   <section class="slide R s5" data-bg="blue" data-m="phone" data-p="175,150,5,1">
-    <div class="eyebrow"><b>04</b> Who we are</div>
+    <div class="eyebrow"><b>03</b> Who we are</div>
     <h2>LCX. TVF's exclusive <em>AI partner.</em></h2>
     <p class="lede">We sit inside the studio behind some of India's most loved streaming shows, and we built ReelForge to take that content everywhere.</p>
     <div class="credits">
@@ -468,26 +474,29 @@ h2 em{font-style:normal;color:var(--acc)}
     <div class="statrow"><span class="ph">[TVF stat: total views]</span><span class="ph">[TVF stat: subscribers]</span><span class="ph">[awards / platforms]</span></div>
   </section>
 
-  <!-- 6 PROBLEM · phone left -->
+  <!-- PROBLEM · phone left -->
   <section class="slide R s6" data-bg="blush" data-m="phone" data-p="185,140,-5,1">
-    <div class="eyebrow"><b>05</b> The problem</div>
+    <div class="eyebrow"><b>04</b> The problem</div>
     <h2>Most long-form gets watched once. <em>Then it vanishes.</em></h2>
     <div class="life">
       <span class="lbl a">Release</span><span class="lbl c">The rest of its life</span>
       <div class="bar"></div><div class="fill"></div>
       <span class="quiet">...silence</span>
     </div>
-    <ul class="pts">
-      <li>Feeds want volume: dozens of clips per episode, every week.</li>
-      <li>Clipping at that scale by hand is slow and expensive.</li>
-    </ul>
+    <div class="why-l">Why it vanishes</div>
+    <div class="why">
+      <div><b>6 hrs</b><p>a day is all the media time people have, and it isn't growing.</p><small>Deloitte, 2025</small></div>
+      <div><b>200B</b><p>YouTube Shorts views every day. The audience lives in the feed now.</p><small>YouTube, 2025</small></div>
+      <div><b>64%</b><p>of India's digital ad revenue went to search and social in 2025.</p><small>FICCI-EY, 2026</small></div>
+    </div>
+    <p class="why-end">Keeping up by hand means dozens of clips per episode, every week. Slow and expensive.</p>
   </section>
 
   <!-- 7 WHAT · phone centre -->
   <section class="slide C s7" data-bg="coral" data-m="phone" data-p="650,140,4,1.1">
     <div class="abs colL">
-      <div class="eyebrow"><b>06</b> What ReelForge is</div>
-      <h2>Your content, everywhere your audience <em style="color:var(--paper)">scrolls.</em></h2>
+      <div class="eyebrow"><b>05</b> What ReelForge is</div>
+      <h2>Content your audience <em style="color:var(--paper)">can't forget.</em></h2>
     </div>
     <div class="abs colR">
       <p class="lede">An AI clipping and distribution service. One episode in, hundreds of feed-ready clips out, posted where they'll be seen.</p>
@@ -498,8 +507,8 @@ h2 em{font-style:normal;color:var(--acc)}
   <!-- 8 HOW · laptop -->
   <section class="slide X s8" data-bg="butter" data-m="laptop" data-p="280,190,0,1">
     <div class="abs top">
-      <div class="eyebrow"><b>07</b> How it works</div>
-      <h2>Four steps. <em>Zero editing bay.</em></h2>
+      <div class="eyebrow"><b>06</b> How it works</div>
+      <h2>You send the episode. <em>We do the rest.</em></h2>
     </div>
     <div class="abs panel">
       <div class="p-meta"><i style="background:var(--butter)"></i>ReelForge Studio · your pipeline</div>
@@ -516,7 +525,7 @@ h2 em{font-style:normal;color:var(--acc)}
   <!-- 9 SERVICES · three phones -->
   <section class="slide C s9" data-bg="blue" data-m="triple" data-p="650,180,0,.9">
     <div class="abs top">
-      <div class="eyebrow"><b>08</b> Our services</div>
+      <div class="eyebrow"><b>07</b> Our services</div>
       <h2>Pick your <em>speed.</em></h2>
     </div>
     <p class="abs side">Three ways to run it. Mix and match.</p>
@@ -525,7 +534,7 @@ h2 em{font-style:normal;color:var(--acc)}
 
   <!-- 10 WHO FOR · phone right -->
   <section class="slide s10" data-bg="blush" data-m="phone" data-p="1190,140,4,1">
-    <div class="eyebrow"><b>09</b> Who it's for</div>
+    <div class="eyebrow"><b>08</b> Who it's for</div>
     <h2>Anyone with more content than <em>reach.</em></h2>
     <div class="segs">
       <div><i style="background:var(--blue)"></i><b>OTT platforms</b><p>Turn the back catalogue into a daily feed.</p></div>
@@ -540,7 +549,7 @@ h2 em{font-style:normal;color:var(--acc)}
   <!-- 11 PROOF · laptop -->
   <section class="slide X s11" data-bg="ink" data-m="laptop" data-p="280,190,0,1">
     <div class="abs top">
-      <div class="eyebrow"><b>10</b> Proof</div>
+      <div class="eyebrow"><b>09</b> Proof</div>
       <h2>Don't take our word. <em>Watch.</em></h2>
     </div>
     <div class="abs panel">
@@ -558,22 +567,20 @@ h2 em{font-style:normal;color:var(--acc)}
     </div>
   </section>
 
-  <!-- 12 CTA · phone centre -->
+  <!-- CTA · phone centre -->
   <section class="slide C s12" data-bg="coral" data-m="phone" data-p="650,130,-6,1.12">
     <div class="abs colL">
-      <div class="eyebrow"><b>11</b> Working with us</div>
-      <h2>Send us one episode.</h2>
-      <div class="offer"><i>+</i>Free sample</div>
+      <div class="eyebrow"><b>10</b> Next step</div>
+      <h2>Your first episode is <em>on us.</em></h2>
     </div>
     <div class="abs colR">
-      <h2>We'll clip it free.</h2>
-      <div class="contact">
-        <small>Name</small><span>Upagnya Purigilla, LCX</span>
-        <small>Email</small><span><span class="ph" style="font-size:20px">[work email]</span></span>
-        <small>Phone</small><span><span class="ph" style="font-size:20px">[phone]</span></span>
+      <p class="lede">Send us one episode. We'll turn it into a batch of feed-ready clips, so you can see ReelForge working on your own content.</p>
+      <div class="card">
+        <div class="who"><span class="av">KP</span><div><b>Kartikeya Prakash</b><small>LCX · ReelForge</small></div></div>
+        <div class="row"><small>Email</small><span class="em">Kartipkeyap@lightscameraexperiment.com</span></div>
+        <div class="row"><small>Phone</small><span>+91 95981 95868</span></div>
       </div>
     </div>
-    <svg class="doodle squig" style="left:1060px;top:90px" width="240" height="60" viewBox="0 0 240 60"><path d="M6 40 C30 6, 50 56, 80 28 S130 6, 150 36 S210 50, 234 14" fill="none" stroke="#16133F" stroke-width="6" stroke-linecap="round"/></svg>
   </section>
 
   <div id="pedestal"><div class="side"></div><div class="top"></div><div class="shadow"></div></div>
@@ -653,8 +660,6 @@ const COVER_CARDS = [
     `<div class="reel r-cover"><div class="strip">${COVER_CARDS.map(coverCard).join('')}${coverCard(COVER_CARDS[0])}</div>${ui('','','12k')}</div>`,
     `<div class="reel r-att"><div class="col">${many(10,()=>'<i></i>')}</div><div class="eye"></div>${ui('@everyfeed','you have about a second','8k')}</div>`,
     `<div class="reel r-per"><div class="grid">${many(9,i=>`<i style="animation-delay:${i*.14}s"></i>`)}</div>${ui('@everywhere','wait, this show again?','21k')}</div>`,
-    `<div class="reel r-moat"><div class="core"></div><div class="ring2"></div><div class="ring2"></div><div class="ring2"></div>
-      ${[[40,80],[200,70],[20,280],[220,270],[110,30],[120,350]].map((p,i)=>`<i class="sat" style="left:${p[0]}px;top:${p[1]}px;animation-delay:${i*.25}s"></i>`).join('')}${ui('@reach','distribution beats content','30k')}</div>`,
     `<div class="reel r-who"><div class="clap"><div class="t"></div><div class="b"><div>LCX <span>x</span> TVF</div></div></div>${ui('@lcx','the AI side of TVF','9k')}</div>`,
     `<div class="reel r-prob"><div class="tv"></div><div class="views">1 view · 3 years ago</div><div class="dust">${many(8,i=>`<i style="left:${30+i*28}px;top:${290+(i%3)*20}px;animation-delay:${i*.45}s"></i>`)}</div>${ui('@archive','is anyone still watching?','2')}</div>`,
     `<div class="reel r-what"><div class="long"></div><div class="bits">${many(6,i=>`<i style="animation-delay:${i*.12}s"></i>`)}</div>${ui('@reelforge','1 long video, many reels','18k')}</div>`,
@@ -662,7 +667,7 @@ const COVER_CARDS = [
     CAMPAIGNS,
     `<div class="reel r-seg">${[['OTT',30,80,'#FFC93C'],['Films',150,120,'#FF7A5C'],['Creators',30,190,'#4FD6A6'],['Brands',150,240,'#fff'],['Sports',30,300,'#FFC93C'],['News',150,350,'#FF7A5C']].map((c,i)=>`<span class="chip" style="left:${c[1]}px;top:${c[2]}px;background:${c[3]};animation-delay:${i*.3}s">${c[0]}</span>`).join('')}${ui('@foryou','built for your audience','7k')}</div>`,
     `<div class="reel r-proof"><div class="slot"><div><i></i>DROP PILOT CLIP HERE</div></div>${ui('@tvfpilot','results from the TVF pilot','')}</div>`,
-    `<div class="reel r-cta"><div class="conf">${many(14,i=>`<i style="left:${(i*19)%270}px;background:${['#3D2EF0','#FF7A5C','#16133F','#4FD6A6'][i%4]};animation-delay:${(i*.21)%2.6}s"></i>`)}</div><div class="gift"></div><div class="txt">Free sample<br>episode</div>${ui('@reelforge','send us one, we clip it','∞')}</div>`
+    `<div class="reel r-cta"><div class="conf">${many(14,i=>`<i style="left:${(i*19)%270}px;background:${['#3D2EF0','#FF7A5C','#16133F','#4FD6A6'][i%4]};animation-delay:${(i*.21)%2.6}s"></i>`)}</div><div class="gift"></div>${ui('@yourshow','episode 01, everywhere','∞')}</div>`
   ];
   const feed = document.getElementById('feed');
   feed.innerHTML = reels.join('');
@@ -742,7 +747,7 @@ const COVER_CARDS = [
   }
 
   // the tornado of bubbles around the cover phone
-  const VX = [], CX = 800, PY = 578;
+  const VX = [], CX = 800, PY = 630;
   const VC = ['#3D2EF0','#FF5C7A','#FFF1E6','#FFC93C','#FFA6CF','#4FD6A6','#FF7A5C'];
   [{y:800,R:430,r:70,n:8,spd:.0062},{y:615,R:560,r:92,n:11,spd:.0048},{y:430,R:690,r:112,n:12,spd:.0037},{y:290,R:770,r:120,n:8,spd:.003}].forEach((ring,ri)=>{
     for(let i=0;i<ring.n;i++){
@@ -829,7 +834,7 @@ const COVER_CARDS = [
     clearInterval(stepTimer);
     const cols = [...document.querySelectorAll('#kb .kcol')];
     cols.forEach(c=>c.classList.remove('hot'));
-    if(n===7){ let k=0; const tick=()=>{cols.forEach((c,i)=>c.classList.toggle('hot',i===k)); k=(k+1)%4;}; setTimeout(()=>{ if(cur===7){ tick(); stepTimer=setInterval(tick,1100);} },550); }
+    if(s.classList.contains('s8')){ let k=0; const tick=()=>{cols.forEach((c,i)=>c.classList.toggle('hot',i===k)); k=(k+1)%4;}; setTimeout(()=>{ if(slides[cur]===s){ tick(); stepTimer=setInterval(tick,1100);} },550); }
   }
 
   if(!reduce) setInterval(()=>{
