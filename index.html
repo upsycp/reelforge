@@ -110,9 +110,8 @@ h2 em{font-style:normal;color:var(--acc)}
 
 /* who we are */
 .credits{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;max-width:900px}
-.credits span{font-family:var(--f-display);font-weight:700;font-size:28px;padding:10px 20px;border-radius:999px;border:3px solid var(--paper)}
-.credits span:nth-child(3n+1){background:var(--butter);color:var(--ink);border-color:var(--butter)}
-.credits span:nth-child(3n+2){background:var(--coral);color:var(--ink);border-color:var(--coral)}
+.credits span{font-family:var(--f-display);font-weight:700;font-size:28px;padding:10px 20px;border-radius:999px;background:var(--paper);color:var(--ink);box-shadow:4px 5px 0 rgba(22,19,63,.35)}
+.credits span:nth-child(odd){transform:rotate(-1.5deg)}.credits span:nth-child(even){transform:rotate(1.2deg)}
 .statrow{display:flex;gap:18px;margin-top:30px;font-size:22px;flex-wrap:wrap}
 .ran{margin:30px 0 0;font-family:var(--f-display);font-weight:700;font-size:34px;line-height:1.1;letter-spacing:-.01em;display:flex;gap:14px;align-items:center}
 .ran::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--butter);flex:none}
