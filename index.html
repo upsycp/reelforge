@@ -69,7 +69,6 @@ h2 em{font-style:normal;color:var(--acc)}
 .pts li{font-size:27px;line-height:1.3;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
 .pts li::before{content:"";width:26px;height:26px;margin-top:5px;border-radius:50%;background:var(--acc2);box-shadow:inset 0 0 0 3px var(--fg)}
 .kicker{margin-top:40px;font-family:var(--f-display);font-weight:800;font-size:46px;line-height:1;display:inline-block;background:var(--fg);color:var(--bg);padding:16px 26px 20px;border-radius:18px}
-.slide.on .kicker{transform:rotate(-1.5deg)}
 .ph{font-family:var(--f-mono);font-size:.62em;background:repeating-linear-gradient(45deg,transparent 0 6px,rgba(127,127,127,.15) 6px 12px);border:2px dashed currentColor;border-radius:8px;padding:2px 8px;opacity:.9;white-space:nowrap}
 .abs{position:absolute}
 .top{left:110px;top:44px}
@@ -233,8 +232,7 @@ h2 em{font-style:normal;color:var(--acc)}
 /* segments */
 .segs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px;max-width:900px}
 .segs div{background:var(--paper);border:4px solid var(--ink);border-radius:20px;padding:18px 20px;color:var(--ink);transition:transform .3s}
-.segs div:nth-child(odd){transform:rotate(-1deg)}.segs div:nth-child(even){transform:rotate(1.2deg)}
-.segs div:hover{transform:scale(1.04) rotate(0)}
+.segs div:hover{transform:translateY(-4px)}
 .segs b{font-family:var(--f-display);font-size:28px;line-height:1.05;display:block}
 .segs p{margin:8px 0 0;font-size:18px;line-height:1.3}
 .segs i{display:inline-block;width:34px;height:34px;border-radius:10px;margin-bottom:12px}
@@ -379,15 +377,27 @@ h2 em{font-style:normal;color:var(--acc)}
 .r-prob .tv::after{content:"";border-left:36px solid #A9A6C8;border-top:22px solid transparent;border-bottom:22px solid transparent;margin-left:10px}
 .r-prob .views{position:absolute;top:320px;left:30px;color:#CFCDE6;font-family:var(--f-mono);font-size:13px}
 .r-prob .dust i{position:absolute;width:6px;height:6px;border-radius:50%;background:#CFCDE6;opacity:.5;animation:dust 4s linear infinite}
-.r-what{background:var(--coral)}
-.r-what .long{position:absolute;left:24px;right:24px;top:100px;height:40px;border-radius:10px;background:var(--ink);overflow:hidden}
-.r-what .long::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 34px,var(--butter) 34px 37px);animation:cut 3s infinite}
-.r-what .bits{position:absolute;left:24px;right:24px;top:180px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.r-what .bits i{aspect-ratio:9/16;border-radius:10px;background:var(--ink);box-shadow:inset 0 -26px 0 var(--blue);animation:fly 3s infinite both}
+.r-what{background:var(--ink)}
+.r-what .col{position:absolute;left:18px;right:18px;top:0;display:grid;gap:10px;animation:wscroll 6s linear infinite}
+.r-what .col i{display:block;height:128px;border-radius:14px;position:relative;background:#2E2A6B}
+.r-what .col i.me{background:var(--butter);box-shadow:0 0 0 3px var(--paper)}
+.r-what .col i.me::before{content:"YOUR SHOW";position:absolute;left:12px;top:12px;font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ink)}
+.r-what .col i.me::after{content:"";position:absolute;left:50%;top:56%;margin:-16px 0 0 -10px;border-left:26px solid var(--ink);border-top:16px solid transparent;border-bottom:16px solid transparent}
+.r-what .seen{position:absolute;left:50%;top:46%;margin:-100px 0 0 -100px;width:200px;height:200px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 6px var(--ink),0 0 0 10px var(--paper);display:grid;place-items:center;text-align:center;z-index:2;animation:pulse 2s ease-in-out infinite}
+.r-what .seen small{display:block;font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--ink)}
+.r-what .seen .n{height:76px;overflow:hidden;font-family:var(--f-display);font-weight:800;font-size:72px;line-height:76px;color:var(--ink);letter-spacing:-.03em}
+.r-what .seen .n span{display:block;animation:tick 8s steps(8) infinite}
+@keyframes wscroll{to{transform:translateY(-552px)}}
+@keyframes tick{to{transform:translateY(-608px)}}
 .r-how{background:var(--butter)}
 .r-how .ic{position:absolute;left:50%;width:150px;margin-left:-75px;height:62px;border-radius:16px;background:var(--paper);box-shadow:0 0 0 4px var(--ink);display:flex;align-items:center;padding:0 14px;box-sizing:border-box;font-family:var(--f-display);font-weight:700;font-size:18px;color:var(--ink);animation:hl 4s infinite}
 .r-seg{background:var(--blush)}
-.r-seg .chip{position:absolute;padding:8px 14px;border-radius:999px;font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--ink);box-shadow:0 0 0 3px var(--ink);animation:bob 2.4s ease-in-out infinite}
+.r-seg .aud{position:absolute;left:22px;right:22px;top:70px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px 14px}
+.r-seg .p{position:relative;aspect-ratio:1;border-radius:50%;background:var(--bgc);box-shadow:0 0 0 3px var(--ink);overflow:hidden}
+.r-seg .p::before{content:"";position:absolute;left:50%;top:24%;width:34%;height:34%;margin-left:-17%;border-radius:50%;background:var(--sk)}
+.r-seg .p::after{content:"";position:absolute;left:18%;right:18%;bottom:-14%;height:44%;border-radius:50% 50% 0 0;background:var(--sh)}
+.r-seg .h{position:absolute;right:-4px;top:-6px;width:28px;height:26px;z-index:2;animation:like 3.6s ease-in-out infinite both}
+@keyframes like{0%,8%{transform:scale(0)}14%{transform:scale(1.25)}20%,70%{transform:scale(1)}80%,100%{transform:scale(0)}}
 .r-proof{background:#221E5C}
 .r-proof .tr{position:absolute;inset:56px 18px 130px;border-radius:18px;background:linear-gradient(160deg,#3D2EF0,#16133F);display:flex;flex-direction:column;justify-content:center;padding:0 18px;color:var(--paper)}
 .r-proof .tr .tag{align-self:flex-start;font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--butter);color:var(--ink);padding:3px 9px;border-radius:999px}
@@ -512,7 +522,7 @@ h2 em{font-style:normal;color:var(--acc)}
     <h2>LCX. TVF's exclusive <em>AI partner.</em></h2>
     <p class="lede">We sit inside the studio behind some of India's most loved streaming shows, and we built ReelForge to take that content everywhere.</p>
     <div class="credits">
-      <span>Panchayat</span><span>Kota Factory</span><span>Aspirants</span><span>Gullak</span><span>Pitchers</span><span>TVF Tripling</span><span>Permanent Roommates</span><span>The Vvaan</span>
+      <span>Panchayat</span><span>Kota Factory</span><span>Aspirants</span><span>Gullak</span><span>Pitchers</span><span>TVF Tripling</span><span>Permanent Roommates</span><span>The Vvaan: Force of the Forrest</span>
     </div>
     <p class="ran">We've run campaigns for several of these titles.</p>
   </section>
@@ -726,10 +736,10 @@ const COVER_CARDS = [
     `<div class="reel r-per"><div class="grid">${many(9,i=>`<i style="animation-delay:${i*.14}s"></i>`)}</div>${ui('@everywhere','wait, this show again?','21k')}</div>`,
     `<div class="reel r-who"><div class="clap"><div class="t"></div><div class="b"><div>LCX <span>x</span> TVF</div></div></div>${ui('@lcx','the AI side of TVF','9k')}</div>`,
     `<div class="reel r-prob"><div class="tv"></div><div class="views">1 view · 3 years ago</div><div class="dust">${many(8,i=>`<i style="left:${30+i*28}px;top:${290+(i%3)*20}px;animation-delay:${i*.45}s"></i>`)}</div>${ui('@archive','is anyone still watching?','2')}</div>`,
-    `<div class="reel r-what"><div class="long"></div><div class="bits">${many(6,i=>`<i style="animation-delay:${i*.12}s"></i>`)}</div>${ui('@reelforge','1 long video, many reels','18k')}</div>`,
+    `<div class="reel r-what"><div class="col">${many(8,i=>`<i class="${i%2?'':'me'}"></i>`)}</div><div class="seen"><div><small>SEEN TODAY</small><div class="n"><span>${['1×','2×','3×','4×','5×','6×','7×','8×'].map(x=>`<div>${x}</div>`).join('')}</span></div></div></div>${ui('@yourshow','you again? okay, watching it tonight','18k')}</div>`,
     `<div class="reel r-how">${['Send','Clip','Approve','Post'].map((t,i)=>`<div class="ic" style="top:${70+i*80}px;animation-delay:${i}s">${String(i+1).padStart(2,'0')} ${t}</div>`).join('')}${ui('@howto','send, clip, approve, post','6k')}</div>`,
     CAMPAIGNS,
-    `<div class="reel r-seg">${[['OTT',30,80,'#FFC93C'],['Films',150,120,'#FF7A5C'],['Creators',30,190,'#4FD6A6'],['Brands',150,240,'#fff'],['Sports',30,300,'#FFC93C'],['News',150,350,'#FF7A5C']].map((c,i)=>`<span class="chip" style="left:${c[1]}px;top:${c[2]}px;background:${c[3]};animation-delay:${i*.3}s">${c[0]}</span>`).join('')}${ui('@foryou','built for your audience','7k')}</div>`,
+    `<div class="reel r-seg"><div class="aud">${many(12,i=>`<div style="position:relative"><div class="p" style="--bgc:${['#FFC93C','#FF7A5C','#4FD6A6','#3D2EF0','#FFA6CF','#FFF8F2'][i%6]};--sk:${['#8D5A3B','#E0A27A','#5C3A2E','#C68863','#F1C27D','#A8714F'][(i*5)%6]};--sh:${['#16133F','#3D2EF0','#FF7A5C','#FFC93C','#16133F','#4FD6A6'][(i+2)%6]}"></div><svg class="h" style="animation-delay:${((i*7)%12)*.3}s" viewBox="0 0 24 22"><path d="M12 21S1 14 1 7a5.5 5.5 0 0 1 11-1 5.5 5.5 0 0 1 11 1c0 7-11 14-11 14z" fill="#FF5C7A" stroke="#16133F" stroke-width="2"/></svg></div>`)}</div>${ui('@foryou','whoever your audience is, we find them','7k')}</div>`,
     `<div class="reel r-proof"><div class="tr"><span class="tag">TOP REEL</span><b>242K</b><em>views</em><q>TVF ke bahar aaj tak direct nahi kiya</q></div>${ui('@tvfheartland','the Vvaan campaign','242K')}</div>`,
     `<div class="reel r-cta"><div class="conf">${many(14,i=>`<i style="left:${(i*19)%270}px;background:${['#3D2EF0','#FF7A5C','#16133F','#4FD6A6'][i%4]};animation-delay:${(i*.21)%2.6}s"></i>`)}</div><div class="gift"></div>${ui('@yourshow','episode 01, everywhere','∞')}</div>`
   ];
