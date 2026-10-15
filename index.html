@@ -187,7 +187,15 @@ h2 em{font-style:normal;color:var(--acc)}
 .pbig b{font-family:var(--f-display);font-weight:800;font-size:96px;letter-spacing:-.04em;color:var(--butter)}
 .pbig span{font-family:var(--f-display);font-weight:700;font-size:30px;color:var(--paper)}
 .pbig em{font-style:normal;color:var(--coral)}
-.s11 .pclip{width:96px;height:150px}
+.rtiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rt{position:relative;display:flex;flex-direction:column;gap:8px;min-height:168px;padding:14px 14px 12px;border-radius:16px;background:var(--c);color:var(--ink);text-decoration:none;box-shadow:0 0 0 3px rgba(255,255,255,.12);transition:transform .2s}
+.rt:nth-child(2){color:var(--paper)}
+.rt:hover,.rt:focus-visible{transform:translateY(-4px) rotate(-1deg);outline:none}
+.rt small{font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.06em;opacity:.8}
+.rt q{font-family:var(--f-body);font-weight:600;font-size:14px;line-height:1.3;quotes:"“" "”";display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rt b{margin-top:auto;font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1;letter-spacing:-.02em}
+.rt b span{font-size:13px;font-weight:700;margin-left:5px;opacity:.75;letter-spacing:0}
+.rt i{position:absolute;top:12px;right:12px;font-style:normal;font-family:var(--f-mono);font-size:10px;font-weight:700;opacity:.7}
 .ptiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .ptiles div{background:rgba(255,255,255,.07);border-radius:14px;padding:12px 14px}
 .ptiles b{font-family:var(--f-display);font-size:30px;display:block;color:var(--butter)}
@@ -358,6 +366,11 @@ h2 em{font-style:normal;color:var(--acc)}
 .r-seg{background:var(--blush)}
 .r-seg .chip{position:absolute;padding:8px 14px;border-radius:999px;font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--ink);box-shadow:0 0 0 3px var(--ink);animation:bob 2.4s ease-in-out infinite}
 .r-proof{background:#221E5C}
+.r-proof .tr{position:absolute;inset:56px 18px 130px;border-radius:18px;background:linear-gradient(160deg,#3D2EF0,#16133F);display:flex;flex-direction:column;justify-content:center;padding:0 18px;color:var(--paper)}
+.r-proof .tr .tag{align-self:flex-start;font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--butter);color:var(--ink);padding:3px 9px;border-radius:999px}
+.r-proof .tr b{margin-top:14px;font-family:var(--f-display);font-weight:800;font-size:64px;line-height:.9;letter-spacing:-.03em;color:var(--butter)}
+.r-proof .tr em{font-style:normal;font-family:var(--f-display);font-weight:700;font-size:20px}
+.r-proof .tr q{margin-top:18px;font-weight:600;font-size:16px;line-height:1.3;quotes:"“" "”"}
 .r-proof .slot{position:absolute;inset:60px 22px 140px;border-radius:18px;border:3px dashed var(--butter);display:grid;place-items:center;text-align:center;color:var(--butter);font-family:var(--f-mono);font-size:13px;font-weight:700;letter-spacing:.08em}
 .r-proof .slot i{display:block;margin:0 auto 14px;width:0;height:0;border-left:40px solid var(--butter);border-top:25px solid transparent;border-bottom:25px solid transparent;animation:pulse 1.4s infinite}
 .r-cta{background:var(--butter)}
@@ -564,11 +577,14 @@ h2 em{font-style:normal;color:var(--acc)}
       <div class="ptiles">
         <div><b>328</b><small>Clips posted</small></div>
         <div><b>26</b><small>Accounts</small></div>
-        <div><b>241.6K</b><small>Top reel views</small></div>
+        <div><b>242K</b><small>Top reel views</small></div>
       </div>
-      <div class="p-label">Sample clips</div>
-      <div class="pclips">
-        <div class="pclip"><small>CLIP 1</small></div><div class="pclip"><small>CLIP 2</small></div><div class="pclip"><small>CLIP 3</small></div><div class="pclip"><small>CLIP 4</small></div>
+      <div class="p-label">More from the campaign · tap to watch</div>
+      <div class="rtiles">
+        <a class="rt" href="https://www.instagram.com/reel/Dd3-yrUiV78/" target="_blank" rel="noopener" style="--c:#FF7A5C"><small>@haanbroo</small><q>Panchayat banane se pehle zameen ke neeche tel dhoondhne…</q><b>212K<span>views</span></b><i>Watch ↗</i></a>
+        <a class="rt" href="https://www.instagram.com/reel/DdyFCHEFBYC/" target="_blank" rel="noopener" style="--c:#3D2EF0"><small>@thetvfadda</small><q>Sidharth aur Tamannaah ki jodi</q><b>149K<span>views</span></b><i>Watch ↗</i></a>
+        <a class="rt" href="https://www.instagram.com/reel/DdwrFgpCDnC/" target="_blank" rel="noopener" style="--c:#FFC93C"><small>@thetvfadda</small><q>Aap yahan isliye baithe hain kyunki aapki kahaniyon se…</q><b>131K<span>views</span></b><i>Watch ↗</i></a>
+        <a class="rt" href="https://www.instagram.com/reel/DdtxdzdCdJv/" target="_blank" rel="noopener" style="--c:#FFF8F2"><small>@thetvfadda</small><q>Bees saal pehle ghar pe bola tha film banaunga…</q><b>45K<span>views</span></b><i>Watch ↗</i></a>
       </div>
     </div>
   </section>
@@ -672,7 +688,7 @@ const COVER_CARDS = [
     `<div class="reel r-how">${['Send','Clip','Approve','Post'].map((t,i)=>`<div class="ic" style="top:${70+i*80}px;animation-delay:${i}s">${String(i+1).padStart(2,'0')} ${t}</div>`).join('')}${ui('@howto','send, clip, approve, post','6k')}</div>`,
     CAMPAIGNS,
     `<div class="reel r-seg">${[['OTT',30,80,'#FFC93C'],['Films',150,120,'#FF7A5C'],['Creators',30,190,'#4FD6A6'],['Brands',150,240,'#fff'],['Sports',30,300,'#FFC93C'],['News',150,350,'#FF7A5C']].map((c,i)=>`<span class="chip" style="left:${c[1]}px;top:${c[2]}px;background:${c[3]};animation-delay:${i*.3}s">${c[0]}</span>`).join('')}${ui('@foryou','built for your audience','7k')}</div>`,
-    `<div class="reel r-proof"><div class="slot"><div><i></i>TOP REEL</div></div>${ui('@thevvaan','the clip that did 241.6K views','241K')}</div>`,
+    `<div class="reel r-proof"><div class="tr"><span class="tag">TOP REEL</span><b>242K</b><em>views</em><q>TVF ke bahar aaj tak direct nahi kiya</q></div>${ui('@tvfheartland','the Vvaan campaign','242K')}</div>`,
     `<div class="reel r-cta"><div class="conf">${many(14,i=>`<i style="left:${(i*19)%270}px;background:${['#3D2EF0','#FF7A5C','#16133F','#4FD6A6'][i%4]};animation-delay:${(i*.21)%2.6}s"></i>`)}</div><div class="gift"></div>${ui('@yourshow','episode 01, everywhere','∞')}</div>`
   ];
   const feed = document.getElementById('feed');
@@ -860,6 +876,7 @@ const COVER_CARDS = [
     if(e.key==='Home') go(0); if(e.key==='End') go(slides.length-1);
   });
   stage.addEventListener('click', e=>{
+    if(e.target.closest('a')) return;
     const rc = stage.getBoundingClientRect();
     (e.clientX - rc.left < rc.width/4) ? go(cur-1) : go(cur+1);
   });
