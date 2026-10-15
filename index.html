@@ -47,6 +47,11 @@ body{background:var(--ink);margin:0;overflow:hidden;font-family:var(--f-body);co
 /* slides */
 .slide{position:absolute;top:0;left:0;bottom:0;padding:96px 0 0 110px;width:960px;box-sizing:border-box;pointer-events:none;z-index:2}
 .slide.R{left:560px;padding-left:40px;width:1000px}
+.slide.s2{display:flex;flex-direction:column;justify-content:center;padding-top:0;padding-bottom:40px}
+.s2 > *{align-self:flex-start}
+.s2 h2{font-size:108px}
+.s2 .pts li{font-size:30px}
+.s2 .kicker{font-size:48px;margin-top:46px;white-space:nowrap}
 .slide.C{width:1600px;padding:0}
 .slide.X{width:1600px;padding:0;z-index:25}
 .slide > *{opacity:0;transform:translateY(calc(var(--dir,1) * 60px));transition:opacity .3s, transform .45s cubic-bezier(.2,.9,.25,1.2)}
