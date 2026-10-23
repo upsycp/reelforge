@@ -481,6 +481,53 @@ h2 em{font-style:normal;color:var(--acc)}
 .squig path{stroke-dasharray:600;stroke-dashoffset:600}
 .slide.on .squig path{animation:squig .9s .5s ease forwards}
 
+
+/* ---------- portrait (phone held upright): 900x1600 stage ---------- */
+#stage.v{width:900px;height:1600px}
+#stage.v .slide,#stage.v .slide.R{left:0;width:900px;padding:96px 70px 0}
+#stage.v .slide.C,#stage.v .slide.X{width:900px;padding:0}
+#stage.v .slide.s2{display:block;padding-top:96px}
+#stage.v h2{font-size:84px}
+#stage.v .s2 h2{font-size:92px}
+#stage.v .s2 .kicker{font-size:42px}
+#stage.v .s6 h2{font-size:74px}
+#stage.v .why b{font-size:46px}
+#stage.v .s1 .title{top:60px;width:900px;font-size:250px;line-height:.82}
+#stage.v .s1 .title span{display:block}
+#stage.v .s1 .what{top:545px;width:900px;font-size:46px;padding:0 40px;box-sizing:border-box}
+#stage.v .s1 .tag1{left:70px;top:1420px;width:480px;font-size:34px}
+#stage.v .s1 .tag2{left:530px;top:1440px;width:300px}
+#stage.v #pedestal{left:-70px;top:1090px}
+#stage.v .top{left:70px;top:96px;width:760px}
+#stage.v .top h2{font-size:76px}
+#stage.v .s7 .colL{left:70px;top:96px;width:760px}
+#stage.v .s7 .colL h2{font-size:84px}
+#stage.v .s7 .colR{left:70px;top:430px;width:760px}
+#stage.v .s8 .panel{left:70px;top:430px;width:760px;height:auto;background:var(--app);border-radius:24px;padding:24px;box-sizing:border-box}
+#stage.v .s8 .kb{grid-template-columns:repeat(2,1fr)}
+#stage.v .s8 .kcol b{font-size:28px}
+#stage.v .s8 .kcol p{font-size:18px}
+#stage.v .s9 .side{left:70px;top:290px;width:760px;text-align:left;font-size:30px}
+#stage.v .s12 .colL{left:70px;top:96px;width:760px}
+#stage.v .s12 .colL h2{font-size:96px}
+#stage.v .s12 .colR{left:70px;top:430px;width:760px}
+#stage.v .s11 .wall{left:40px;top:300px;width:820px;height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:12px;border-radius:24px}
+#stage.v .s11 .wrow{display:contents}
+#stage.v .s11 .wr{aspect-ratio:9/16;border-radius:16px}
+#stage.v .s11 .wr small{font-size:14px}
+#stage.v .s11 .wr .badge{font-size:12px;top:34px}
+#stage.v .s11 .wr q{font-size:16px}
+#stage.v .s11 .wr b{font-size:40px}
+#stage.v .s11 .wr b span{font-size:15px}
+#stage.v .s11 .wstats{display:flex;flex-direction:column;justify-content:center;gap:20px;border-top:0;padding:18px;background:rgba(255,255,255,.05);border-radius:16px}
+#stage.v .s11 .whero{flex-direction:column;align-items:flex-start;gap:6px}
+#stage.v .s11 .whero b{font-size:64px}
+#stage.v .s11 .wmeta span{white-space:normal}
+#stage.v .clone{transform:translate(300px,740px) scale(.7)}
+#stage.v[data-mode=triple] #cloneL{transform:translate(0px,740px) rotate(-6deg) scale(.78)}
+#stage.v[data-mode=triple] #cloneR{transform:translate(600px,740px) rotate(6deg) scale(.78)}
+#stage.snap #dev,#stage.snap .clone,#stage.snap #pedestal{transition:none!important}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}
 }
@@ -494,13 +541,13 @@ h2 em{font-style:normal;color:var(--acc)}
 <div id="stage" data-bg="blue" data-slide="1" data-mode="phone">
   <div id="wipe"></div>
 
-  <div class="ghost" style="left:1010px;top:80px;--r:-12deg;--d:.35s"></div>
-  <div class="ghost" style="left:1460px;top:60px;--r:10deg;--d:.42s"></div>
-  <div class="ghost" style="left:1020px;top:600px;--r:8deg;--d:.49s"></div>
-  <div class="ghost" style="left:1465px;top:610px;--r:-9deg;--d:.56s"></div>
+  <div class="ghost" data-vpos="60,930" style="left:1010px;top:80px;--r:-12deg;--d:.35s"></div>
+  <div class="ghost" data-vpos="730,960" style="left:1460px;top:60px;--r:10deg;--d:.42s"></div>
+  <div class="ghost" data-vpos="90,1300" style="left:1020px;top:600px;--r:8deg;--d:.49s"></div>
+  <div class="ghost" data-vpos="700,1320" style="left:1465px;top:610px;--r:-9deg;--d:.56s"></div>
 
   <!-- 1 COVER · phone on a pedestal, bubbles orbiting -->
-  <section class="slide C s1" data-bg="ink" data-m="phone" data-p="650,320,0,.74">
+  <section class="slide C s1" data-bg="ink" data-m="phone" data-p="650,320,0,.74" data-pv="300,660,0,.74">
     <h1 class="abs title">Reel<span>Forge</span></h1>
     <p class="abs what">AI clipping <span>+</span> distribution</p>
     <p class="abs tag1">Your content, in every feed.</p>
@@ -508,7 +555,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- 2 ATTENTION · phone right -->
-  <section class="slide s2" data-bg="blush" data-m="phone" data-p="1160,150,5,1">
+  <section class="slide s2" data-bg="blush" data-m="phone" data-p="1160,150,5,1" data-pv="300,870,5,.95">
     <div class="eyebrow"><b>1</b> The attention economy</div>
     <h2>Attention is the <em>scarcest</em> thing online.</h2>
     <ul class="pts">
@@ -519,7 +566,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- 3 PERCEPTION · phone right, multiplying -->
-  <section class="slide s3" data-bg="butter" data-m="phone" data-p="1185,160,-3,.95">
+  <section class="slide s3" data-bg="butter" data-m="phone" data-p="1185,160,-3,.95" data-pv="300,900,-3,.92">
     <div class="eyebrow"><b>2</b> The perception economy</div>
     <h2>Seen everywhere. <em>Assumed big.</em></h2>
     <p class="lede">What people see again and again, they read as big, credible and worth watching. That perception of scale drives real demand.</p>
@@ -530,7 +577,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- 5 WHO WE ARE · phone left -->
-  <section class="slide R s5" data-bg="blue" data-m="phone" data-p="175,150,5,1">
+  <section class="slide R s5" data-bg="blue" data-m="phone" data-p="175,150,5,1" data-pv="300,930,5,.92">
     <div class="eyebrow"><b>3</b> Who we are</div>
     <h2>LCX. TVF's exclusive <em>AI partner.</em></h2>
     <p class="lede">We sit inside the studio behind some of India's most loved streaming shows, and we built ReelForge to take that content everywhere.</p>
@@ -541,7 +588,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- PROBLEM · phone left -->
-  <section class="slide R s6" data-bg="blush" data-m="phone" data-p="185,140,-5,1">
+  <section class="slide R s6" data-bg="blush" data-m="phone" data-p="185,140,-5,1" data-pv="300,930,-5,.8">
     <div class="eyebrow"><b>4</b> The problem</div>
     <h2>Most long-form gets watched once. <em>Then it vanishes.</em></h2>
     <div class="life">
@@ -559,7 +606,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- 7 WHAT · phone centre -->
-  <section class="slide C s7" data-bg="coral" data-m="phone" data-p="650,140,4,1.1">
+  <section class="slide C s7" data-bg="coral" data-m="phone" data-p="650,140,4,1.1" data-pv="300,810,4,1">
     <div class="abs colL">
       <div class="eyebrow"><b>5</b> What ReelForge is</div>
       <h2>Content your audience <em style="color:var(--paper)">can't forget.</em></h2>
@@ -571,7 +618,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- 8 HOW · laptop -->
-  <section class="slide X s8" data-bg="butter" data-m="laptop" data-p="280,190,0,1">
+  <section class="slide X s8" data-bg="butter" data-m="laptop" data-p="280,190,0,1" data-pv="300,990,0,.74" data-mv="phone">
     <div class="abs top">
       <div class="eyebrow"><b>6</b> How it works</div>
       <h2>You send the episode. <em>We do the rest.</em></h2>
@@ -579,17 +626,17 @@ h2 em{font-style:normal;color:var(--acc)}
     <div class="abs panel">
       <div class="p-meta"><i style="background:var(--butter)"></i>ReelForge Studio · your pipeline</div>
       <div class="kb" id="kb">
-        <div class="kcol"><span class="n">01</span><b>Send</b><p>Share your episodes, films or archive.</p><div class="mini"><i style="width:80px"></i></div></div>
-        <div class="kcol"><span class="n">02</span><b>Clip + package</b><p>AI finds the moments, cuts, captions and formats.</p><div class="mini"><i></i><i></i><i></i></div></div>
-        <div class="kcol"><span class="n">03</span><b>Approve</b><p>You sign off. Nothing goes live without you.</p><div class="mini"><i></i><i></i><i></i></div></div>
-        <div class="kcol"><span class="n">04</span><b>Distribute + report</b><p>We post at scale and show you what worked.</p><div class="mini"><i></i><i></i><i></i></div></div>
+        <div class="kcol"><span class="n">1</span><b>Send</b><p>Share your episodes, films or archive.</p><div class="mini"><i style="width:80px"></i></div></div>
+        <div class="kcol"><span class="n">2</span><b>Clip + package</b><p>AI finds the moments, cuts, captions and formats.</p><div class="mini"><i></i><i></i><i></i></div></div>
+        <div class="kcol"><span class="n">3</span><b>Approve</b><p>You sign off. Nothing goes live without you.</p><div class="mini"><i></i><i></i><i></i></div></div>
+        <div class="kcol"><span class="n">4</span><b>Distribute + report</b><p>We post at scale and show you what worked.</p><div class="mini"><i></i><i></i><i></i></div></div>
       </div>
       <div class="chips"><small>Where clips go</small><span>Your channels</span><span>New channels we create</span><span>Verified clipper network</span></div>
     </div>
   </section>
 
   <!-- 9 SERVICES · three phones -->
-  <section class="slide C s9" data-bg="blue" data-m="triple" data-p="650,180,0,.9">
+  <section class="slide C s9" data-bg="blue" data-m="triple" data-p="650,180,0,.9" data-pv="300,740,0,.8">
     <div class="abs top">
       <div class="eyebrow"><b>7</b> Our services</div>
       <h2>Pick your <em>speed.</em></h2>
@@ -598,7 +645,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- 10 WHO FOR · phone right -->
-  <section class="slide s10" data-bg="blush" data-m="phone" data-p="1190,140,4,1">
+  <section class="slide s10" data-bg="blush" data-m="phone" data-p="1190,140,4,1" data-pv="300,880,4,.9">
     <div class="eyebrow"><b>8</b> Who it's for</div>
     <h2>Anyone with more content than <em>reach.</em></h2>
     <div class="segs">
@@ -612,7 +659,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- 11 PROOF · laptop -->
-  <section class="slide X s11" data-bg="ink" data-m="laptop" data-p="280,190,0,1">
+  <section class="slide X s11" data-bg="ink" data-m="laptop" data-p="280,190,0,1" data-pv="300,1760,0,.8" data-mv="phone">
     <div class="abs top">
       <div class="eyebrow"><b>9</b> Proof</div>
       <h2>Don't take our word. <em>Watch.</em></h2>
@@ -655,7 +702,7 @@ h2 em{font-style:normal;color:var(--acc)}
   </section>
 
   <!-- CTA · phone centre -->
-  <section class="slide C s12" data-bg="coral" data-m="phone" data-p="650,130,-6,1.12">
+  <section class="slide C s12" data-bg="coral" data-m="phone" data-p="650,130,-6,1.12" data-pv="300,880,-6,.9">
     <div class="abs colL">
       <div class="eyebrow"><b>10</b> Next step</div>
       <h2>Your first episode is <em>on us.</em></h2>
@@ -750,7 +797,7 @@ const COVER_CARDS = [
     `<div class="reel r-who"><div class="clap"><div class="t"></div><div class="b"><div>LCX <span>x</span> TVF</div></div></div>${ui('@lcx','the AI side of TVF','9k')}</div>`,
     `<div class="reel r-prob"><div class="tv"></div><div class="views">1 view · 3 years ago</div><div class="dust">${many(8,i=>`<i style="left:${30+i*28}px;top:${290+(i%3)*20}px;animation-delay:${i*.45}s"></i>`)}</div>${ui('@archive','is anyone still watching?','2')}</div>`,
     `<div class="reel r-what"><div class="stars"><i style="left:22px;top:40px;--s:10px;--c:#FFF8F2;--d:0.00s"></i><i style="left:240px;top:52px;--s:14px;--c:#FFC93C;--d:0.37s"></i><i style="left:30px;top:130px;--s:8px;--c:#FFC93C;--d:0.74s"></i><i style="left:250px;top:150px;--s:9px;--c:#FFF8F2;--d:1.11s"></i><i style="left:14px;top:420px;--s:12px;--c:#FFF8F2;--d:1.48s"></i><i style="left:230px;top:440px;--s:8px;--c:#FFC93C;--d:1.85s"></i><i style="left:120px;top:470px;--s:10px;--c:#FFF8F2;--d:2.22s"></i><i style="left:60px;top:210px;--s:6px;--c:#FFF8F2;--d:2.59s"></i><i style="left:210px;top:110px;--s:6px;--c:#FFF8F2;--d:0.36s"></i></div><div class="hed">NOW PLAYING<b>everywhere</b></div><svg class="swoosh" viewBox="0 0 280 280"><g fill="none" stroke="#FFF8F2" stroke-width="5" stroke-linecap="round"><path d="M40 70 A130 130 0 0 1 120 14"/><path d="M262 150 A130 130 0 0 1 200 250"/><path d="M30 190 A130 130 0 0 0 46 222"/></g></svg><svg class="swoosh b" viewBox="0 0 280 280"><g fill="none" stroke="#FFC93C" stroke-width="5" stroke-linecap="round"><path d="M40 70 A130 130 0 0 1 120 14"/><path d="M262 150 A130 130 0 0 1 200 250"/><path d="M30 190 A130 130 0 0 0 46 222"/></g></svg><div class="globe"><div class="land"><svg viewBox="0 0 400 200" width="400" height="200"><g fill="#4FD6A6" stroke="#16133F" stroke-width="3" stroke-linejoin="round"><path d="M30 40c18-14 52-12 66 4 12 14 4 30 16 40 14 12 2 34-18 34-12 0-14 14-28 18-16 4-26-10-22-26 4-14-14-22-18-38-4-14-6-24 4-32z"/><path d="M92 128c14-4 28 6 30 22 2 18-10 34-22 40-12 6-18-8-16-22 2-12-6-34 8-40z"/><path d="M170 30c22-10 50-6 62 8 10 12-2 24 10 32 14 10 6 26-12 26-14 0-18 12-34 12-14 0-20-14-14-26 6-12-18-14-20-28-2-12-2-20 8-24z"/><path d="M196 110c16-6 34 2 36 18 2 14-8 32-22 38-14 6-24-6-22-20 2-12-6-30 8-36z"/><path d="M262 44c26-14 66-12 92 2 22 12 18 30 0 36-16 6-6 22-26 28-18 6-30-8-46-4-16 4-28-8-24-22 4-12-14-28 4-40z"/><path d="M330 130c12-6 30-2 34 10 4 12-6 24-20 24-12 0-26-4-24-16 1-8 2-14 10-18z"/></g><g fill="#FFF8F2" opacity=".9"><circle cx="150" cy="70" r="4"/><circle cx="250" cy="150" r="3"/><circle cx="60" cy="160" r="3"/></g></svg><svg viewBox="0 0 400 200" width="400" height="200"><g fill="#4FD6A6" stroke="#16133F" stroke-width="3" stroke-linejoin="round"><path d="M30 40c18-14 52-12 66 4 12 14 4 30 16 40 14 12 2 34-18 34-12 0-14 14-28 18-16 4-26-10-22-26 4-14-14-22-18-38-4-14-6-24 4-32z"/><path d="M92 128c14-4 28 6 30 22 2 18-10 34-22 40-12 6-18-8-16-22 2-12-6-34 8-40z"/><path d="M170 30c22-10 50-6 62 8 10 12-2 24 10 32 14 10 6 26-12 26-14 0-18 12-34 12-14 0-20-14-14-26 6-12-18-14-20-28-2-12-2-20 8-24z"/><path d="M196 110c16-6 34 2 36 18 2 14-8 32-22 38-14 6-24-6-22-20 2-12-6-30 8-36z"/><path d="M262 44c26-14 66-12 92 2 22 12 18 30 0 36-16 6-6 22-26 28-18 6-30-8-46-4-16 4-28-8-24-22 4-12-14-28 4-40z"/><path d="M330 130c12-6 30-2 34 10 4 12-6 24-20 24-12 0-26-4-24-16 1-8 2-14 10-18z"/></g><g fill="#FFF8F2" opacity=".9"><circle cx="150" cy="70" r="4"/><circle cx="250" cy="150" r="3"/><circle cx="60" cy="160" r="3"/></g></svg></div></div><svg class="pin" style="left:90px;top:230px;--d:0.0s" viewBox="0 0 26 34"><path d="M13 33C6 23 2 18 2 12a11 11 0 0 1 22 0c0 6-4 11-11 21z" fill="#FF7A5C" stroke="#16133F" stroke-width="2.5"/><path d="M10 7.5v9l7.5-4.5z" fill="#16133F"/></svg><svg class="pin" style="left:170px;top:215px;--d:0.7s" viewBox="0 0 26 34"><path d="M13 33C6 23 2 18 2 12a11 11 0 0 1 22 0c0 6-4 11-11 21z" fill="#FF7A5C" stroke="#16133F" stroke-width="2.5"/><path d="M10 7.5v9l7.5-4.5z" fill="#16133F"/></svg><svg class="pin" style="left:120px;top:300px;--d:1.4s" viewBox="0 0 26 34"><path d="M13 33C6 23 2 18 2 12a11 11 0 0 1 22 0c0 6-4 11-11 21z" fill="#FF7A5C" stroke="#16133F" stroke-width="2.5"/><path d="M10 7.5v9l7.5-4.5z" fill="#16133F"/></svg><svg class="pin" style="left:195px;top:285px;--d:2.1s" viewBox="0 0 26 34"><path d="M13 33C6 23 2 18 2 12a11 11 0 0 1 22 0c0 6-4 11-11 21z" fill="#FF7A5C" stroke="#16133F" stroke-width="2.5"/><path d="M10 7.5v9l7.5-4.5z" fill="#16133F"/></svg><svg class="pin" style="left:75px;top:280px;--d:2.8s" viewBox="0 0 26 34"><path d="M13 33C6 23 2 18 2 12a11 11 0 0 1 22 0c0 6-4 11-11 21z" fill="#FF7A5C" stroke="#16133F" stroke-width="2.5"/><path d="M10 7.5v9l7.5-4.5z" fill="#16133F"/></svg><svg class="pin" style="left:150px;top:255px;--d:3.5s" viewBox="0 0 26 34"><path d="M13 33C6 23 2 18 2 12a11 11 0 0 1 22 0c0 6-4 11-11 21z" fill="#FF7A5C" stroke="#16133F" stroke-width="2.5"/><path d="M10 7.5v9l7.5-4.5z" fill="#16133F"/></svg>${ui('@yourshow','one show. every corner of the world.','18k')}</div>`,
-    `<div class="reel r-how">${['Send','Clip','Approve','Post'].map((t,i)=>`<div class="ic" style="top:${70+i*80}px;animation-delay:${i}s">${String(i+1).padStart(2,'0')} ${t}</div>`).join('')}${ui('@howto','send, clip, approve, post','6k')}</div>`,
+    `<div class="reel r-how">${['Send','Clip','Approve','Post'].map((t,i)=>`<div class="ic" style="top:${70+i*80}px;animation-delay:${i}s">${i+1} ${t}</div>`).join('')}${ui('@howto','send, clip, approve, post','6k')}</div>`,
     CAMPAIGNS,
     `<div class="reel r-seg"><div class="aud">${many(12,i=>`<div style="position:relative"><div class="p" style="--bgc:${['#FFC93C','#FF7A5C','#4FD6A6','#3D2EF0','#FFA6CF','#FFF8F2'][i%6]};--sk:${['#8D5A3B','#E0A27A','#5C3A2E','#C68863','#F1C27D','#A8714F'][(i*5)%6]};--sh:${['#16133F','#3D2EF0','#FF7A5C','#FFC93C','#16133F','#4FD6A6'][(i+2)%6]}"></div><svg class="h" style="animation-delay:${((i*7)%12)*.3}s" viewBox="0 0 24 22"><path d="M12 21S1 14 1 7a5.5 5.5 0 0 1 11-1 5.5 5.5 0 0 1 11 1c0 7-11 14-11 14z" fill="#FF5C7A" stroke="#16133F" stroke-width="2"/></svg></div>`)}</div>${ui('@foryou','whoever your audience is, we find them','7k')}</div>`,
     `<div class="reel r-proof"><div class="tr"><span class="tag">TOP REEL</span><b>242K</b><em>views</em><q>TVF ke bahar aaj tak direct nahi kiya</q></div>${ui('@tvfheartland','the Vvaan campaign','242K')}</div>`,
@@ -771,15 +818,19 @@ const COVER_CARDS = [
   const count = document.getElementById('count');
   dots.innerHTML = slides.map((_,i)=>`<i data-i="${i}" title="Slide ${i+1}"></i>`).join('');
   let cur = -1, stepTimer, lastGo = 0, wipeTimer, bgTimer;
+  const VERT_OK = document.documentElement.dataset.vertical === 'on';
+  let V = false;
+  const isV = () => VERT_OK && innerHeight > innerWidth * 1.05;
+  const STW = () => V ? 900 : 1600, STH = () => V ? 1600 : 900;
 
   function fit(){
     const vw = document.getElementById('viewport');
-    const s = Math.min(vw.clientWidth/1600, (vw.clientHeight-60)/900);
+    const s = Math.min(vw.clientWidth/STW(), (vw.clientHeight-60)/STH());
     stage.style.transform = `translate(-50%,-50%) translateY(-24px) scale(${s})`;
   }
   addEventListener('resize', fit); fit();
 
-  const geo = sl => { const [x,y,r,s] = sl.dataset.p.split(',').map(Number); const m = sl.dataset.m; const [w,h] = DIMS[m]; return {x,y,r,s,m,w,h,cx:x+w/2,cy:y+h/2}; };
+  const geo = sl => { const [x,y,r,s] = ((V && sl.dataset.pv) || sl.dataset.p).split(',').map(Number); const m = (V && sl.dataset.mv) || sl.dataset.m; const [w,h] = DIMS[m]; return {x,y,r,s,m,w,h,cx:x+w/2,cy:y+h/2}; };
 
   // where the fingertip lands on a given layout
   function touchPoint(g){
@@ -834,7 +885,7 @@ const COVER_CARDS = [
   }
 
   // the tornado of bubbles around the cover phone
-  const VX = [], CX = 800, PY = 630;
+  const VX = []; let CX = 800, PY = 630, VR = 1, VY = 1;
   const VC = ['#3D2EF0','#FF5C7A','#FFF1E6','#FFC93C','#FFA6CF','#4FD6A6','#FF7A5C'];
   [{y:800,R:430,r:70,n:8,spd:.0062},{y:615,R:560,r:92,n:11,spd:.0048},{y:430,R:690,r:112,n:12,spd:.0037},{y:290,R:770,r:120,n:8,spd:.003}].forEach((ring,ri)=>{
     for(let i=0;i<ring.n;i++){
@@ -857,7 +908,7 @@ const COVER_CARDS = [
       for(const v of VX){
         if(!reduce) v.a += v.spd * dt;
         const sn = Math.sin(v.a), cs = Math.cos(v.a);
-        const x = CX + v.R*vk*cs, y = PY + (v.y-PY)*vk + v.r*vk*sn;
+        const x = CX + v.R*VR*vk*cs, y = PY + (v.y-630)*VY*vk + v.r*vk*sn;
         const sc = (.55 + .6*(sn+1)/2) * (.25 + .75*vk);
         v.el.style.transform = `translate(${x}px,${y}px) translate(-50%,-50%) rotate(${v.rot - cs*16}deg) scale(${sc})`;
         v.el.style.zIndex = sn > 0 ? 30 : 4;
@@ -895,7 +946,7 @@ const COVER_CARDS = [
       wipe.style.clipPath = `circle(0px at ${g.cx}px ${g.cy}px)`;
       void wipe.offsetWidth;
       wipe.style.transition = 'clip-path .6s cubic-bezier(.7,0,.25,1) .12s';
-      wipe.style.clipPath = `circle(1900px at ${g.cx}px ${g.cy}px)`;
+      wipe.style.clipPath = `circle(2600px at ${g.cx}px ${g.cy}px)`;
       bgTimer = setTimeout(()=>{ stage.dataset.bg = nextBg; }, 380);
       wipeTimer = setTimeout(()=>{ stage.style.background = ''; wipe.style.transition='none'; wipe.style.clipPath='circle(0px at 50% 50%)'; }, 780);
       setTimeout(()=>burst(g, nextBg), 480);
@@ -953,6 +1004,23 @@ const COVER_CARDS = [
   addEventListener('touchend', e=>{ if(ty===null) return; const dy=ty-e.changedTouches[0].clientY, dx=tx-e.changedTouches[0].clientX;
     if(Math.max(Math.abs(dx),Math.abs(dy))>40){ go(cur + ((Math.abs(dy)>Math.abs(dx)?dy:dx)>0?1:-1)); } ty=null; }, {passive:true});
 
+  const ghosts = [...document.querySelectorAll('.ghost')];
+  ghosts.forEach(el=>{ el.dataset.hpos = el.style.left+','+el.style.top; });
+  function applyMode(){
+    const nv = isV();
+    if(nv === V && applyMode.done) return;
+    applyMode.done = true; V = nv;
+    stage.classList.toggle('v', V);
+    if(V){ CX = 450; PY = 970; VR = .5; VY = 1.25; } else { CX = 800; PY = 630; VR = 1; VY = 1; }
+    ghosts.forEach(el=>{
+      if(V){ const [l,t] = el.dataset.vpos.split(','); el.style.left = l+'px'; el.style.top = t+'px'; }
+      else { const [l,t] = el.dataset.hpos.split(','); el.style.left = l; el.style.top = t; }
+    });
+    fit();
+    if(cur >= 0){ const n = cur; stage.classList.add('snap'); cur = -1; go(n); requestAnimationFrame(()=>requestAnimationFrame(()=>stage.classList.remove('snap'))); }
+  }
+  applyMode();
+  addEventListener('resize', applyMode);
   const h = parseInt((location.hash||'').slice(1),10);
   go(h>=1 && h<=slides.length ? h-1 : 0);
 })();
