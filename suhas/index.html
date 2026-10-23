@@ -885,7 +885,7 @@ const COVER_CARDS = [
   }
 
   // the tornado of bubbles around the cover phone
-  const VX = []; let CX = 800, PY = 630, VR = 1, VY = 1;
+  const VX = []; let CX = 800, PY = 630, VR = 1, VY = 1, VRY = 1, VS = 1;
   const VC = ['#3D2EF0','#FF5C7A','#FFF1E6','#FFC93C','#FFA6CF','#4FD6A6','#FF7A5C'];
   [{y:800,R:430,r:70,n:8,spd:.0062},{y:615,R:560,r:92,n:11,spd:.0048},{y:430,R:690,r:112,n:12,spd:.0037},{y:290,R:770,r:120,n:8,spd:.003}].forEach((ring,ri)=>{
     for(let i=0;i<ring.n;i++){
@@ -908,8 +908,8 @@ const COVER_CARDS = [
       for(const v of VX){
         if(!reduce) v.a += v.spd * dt;
         const sn = Math.sin(v.a), cs = Math.cos(v.a);
-        const x = CX + v.R*VR*vk*cs, y = PY + (v.y-630)*VY*vk + v.r*vk*sn;
-        const sc = (.55 + .6*(sn+1)/2) * (.25 + .75*vk);
+        const x = CX + v.R*VR*vk*cs, y = PY + (v.y-630)*VY*vk + v.r*VRY*vk*sn;
+        const sc = (.55 + .6*(sn+1)/2) * (.25 + .75*vk) * VS;
         v.el.style.transform = `translate(${x}px,${y}px) translate(-50%,-50%) rotate(${v.rot - cs*16}deg) scale(${sc})`;
         v.el.style.zIndex = sn > 0 ? 30 : 4;
         v.el.style.opacity = Math.min(1, vk*1.3) * (sn > 0 ? 1 : .72);
@@ -1011,7 +1011,7 @@ const COVER_CARDS = [
     if(nv === V && applyMode.done) return;
     applyMode.done = true; V = nv;
     stage.classList.toggle('v', V);
-    if(V){ CX = 450; PY = 1130; VR = .5; VY = .8; } else { CX = 800; PY = 630; VR = 1; VY = 1; }
+    if(V){ CX = 450; PY = 1150; VR = .6; VY = .9; VRY = 1.35; VS = .7; } else { CX = 800; PY = 630; VR = 1; VY = 1; VRY = 1; VS = 1; }
     ghosts.forEach(el=>{
       if(V){ const [l,t] = el.dataset.vpos.split(','); el.style.left = l+'px'; el.style.top = t+'px'; }
       else { const [l,t] = el.dataset.hpos.split(','); el.style.left = l; el.style.top = t; }
