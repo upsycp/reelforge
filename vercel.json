@@ -10,12 +10,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/planner",
-      "destination": "/reelforge-budget-planner",
-      "permanent": false
-    }
   ]
 }
