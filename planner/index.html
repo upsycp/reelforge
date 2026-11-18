@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReelForge budget planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Instrument+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+/* VOICE: a shop counter: fill in the order slip, the till prints your receipt.
+   IDEA: an order slip and a printed cash receipt, matching the ReelForge price card.
+   PICTURE: the live receipt, torn edge, with the views total large.
+   COLOUR and TYPE: ReelForge blue field, paper white, ink, butter and coral labels; mono for the receipt.
+   LAYOUT: order slip left, receipt right; stacks on phones. */
+:root{color-scheme:light;--blue:#3D2EF0;--ink:#16133F;--paper:#FFFFFF;--cream:#FFF8F2;--soft:#5A5684;--butter:#FFC93C;--coral:#FF7A5C;--mint:#4FD6A6}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--blue);color:var(--ink);font:16px/1.5 'Instrument Sans','Helvetica Neue',Arial,sans-serif;overflow-x:clip}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+main{max-width:1080px;margin:0 auto;padding:clamp(24px,5vw,56px) 16px 64px}
+.top{display:flex;justify-content:space-between;align-items:center;color:var(--cream)}
+.logo{font:800 24px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}.logo b{color:var(--butter)}
+.tag{font:700 11px 'JetBrains Mono',monospace;background:var(--butter);color:var(--ink);padding:5px 9px;border-radius:5px}
+h1{margin:26px 0 6px;color:var(--cream);font:800 clamp(32px,5vw,48px)/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+.lead{margin:0 0 28px;color:#D8D5F5;max-width:56ch}
+.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;align-items:start}
+@media(max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+.slip{background:var(--cream);padding:22px 22px 26px;border-radius:4px;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+.slip h2{margin:0 0 4px;font:700 13px 'JetBrains Mono',monospace;letter-spacing:.14em}
+.rule{border:0;border-top:2px dashed var(--ink);margin:14px 0}
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choices button{font:700 14px 'JetBrains Mono',monospace;min-height:44px;padding:0 14px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;border-radius:2px}
+.choices button[aria-pressed=true]{background:var(--ink);color:var(--cream)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:14px;align-items:end;padding:12px 0}
+.field+.field{border-top:1px dotted rgba(22,19,63,.35)}
+.field b{display:inline-block;font:700 12px 'Instrument Sans',sans-serif;padding:3px 7px;margin-bottom:4px}
+.field small{display:block;color:var(--soft);font-size:14px;line-height:1.4}
+.field .rt{font:400 13px 'JetBrains Mono',monospace;color:var(--ink);margin-top:3px}
+.field .rt s{color:var(--soft);margin-right:6px}
+.amt{position:relative}
+.amt span{position:absolute;left:4px;bottom:9px;font:700 16px 'JetBrains Mono',monospace}
+.amt input{width:100%;font:700 16px 'JetBrains Mono',monospace;min-height:44px;padding:0 4px 0 20px;border:0;border-bottom:2px solid var(--ink);background:transparent;color:var(--ink);text-align:right;border-radius:0}
+.lbl{font:700 12px 'JetBrains Mono',monospace;letter-spacing:.1em;margin:18px 0 8px}
+.hint{font-size:14px;color:var(--soft);margin:6px 0 0}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tiers button{font:inherit;text-align:left;min-height:60px;padding:8px 10px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;border-radius:2px}
+.tiers button b{display:block;font:700 13px 'JetBrains Mono',monospace}.tiers button span{font-size:13px;color:var(--soft)}
+.tiers button[aria-pressed=true]{background:var(--butter)}
+@media(max-width:520px){.tiers{grid-template-columns:minmax(0,1fr)}.field{grid-template-columns:minmax(0,1fr)}}
+.rcpt{position:sticky;top:16px;transform:rotate(.6deg)}
+@media(max-width:860px){.rcpt{position:static;transform:none}}
+.paper{background:var(--paper);padding:26px 24px 18px;font-family:'JetBrains Mono',monospace;font-size:14px;box-shadow:0 10px 24px rgba(10,6,60,.28)}
+.edge{height:14px;background:linear-gradient(-45deg,transparent 10px,var(--paper) 0) 0 0/20px 14px repeat-x,linear-gradient(45deg,transparent 10px,var(--paper) 0) 0 0/20px 14px repeat-x;filter:drop-shadow(0 6px 6px rgba(10,6,60,.18))}
+.c{text-align:center}
+.head1{font-weight:700;letter-spacing:.2em;font-size:13px}
+.badge{display:inline-block;margin:10px 0 2px;background:var(--coral);font:700 15px 'Instrument Sans',sans-serif;padding:6px 12px}
+.meta{font-size:12px;color:var(--soft);margin-top:6px}
+.dash{border-top:2px dashed var(--ink);margin:12px 0}
+.ln{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.ln span:last-child{white-space:nowrap;font-weight:700}
+.sm{font-size:12px;color:var(--soft)}
+.views{font:800 clamp(38px,6vw,52px)/1 'Bricolage Grotesque',sans-serif;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.tot{font-size:17px;font-weight:700}
+.tip{margin:12px 0 0;font-size:12px;border:1.5px dashed var(--ink);padding:8px 10px;line-height:1.45}
+.tip:empty{display:none}
+.terms{margin:0;padding:0;list-style:none;font-size:12px;line-height:1.55}
+.terms li::before{content:'* '}
+.thanks{letter-spacing:.18em;font-size:12px;margin-top:12px}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><div class="logo">Reel<b>Forge</b></div><div class="tag">BY LCX</div></div>
+<h1>What your budget buys</h1>
+<p class="lead">Fill in the slip and the receipt updates as you go. You only ever pay for views delivered.</p>
+
+<div class="grid">
+<section class="slip" aria-label="Order slip">
+<h2>ORDER SLIP</h2>
+<hr class="rule">
+<div class="choices" id="stage"></div>
+<p class="hint" id="stageNote"></p>
+
+<div id="testCtl">
+<div class="field" style="border:0;padding-bottom:0"><div><b style="background:var(--butter)">TEST BUDGET</b><small>30 days at standard rates, from $1,500. We recommend $3,000. Change any line below and the rest rebalance.</small></div><div class="amt"><span>$</span><input id="tb" type="number" min="1500" step="500" value="3000" inputmode="numeric" aria-label="Test budget in dollars"></div></div>
+</div>
+
+<div id="tierCtl"><div class="lbl">BUDGET TIER</div><div class="tiers" id="tiers"></div><p class="hint">Your total monthly budget sets the tier. Tap one to jump to it.</p></div>
+<div id="planCtl"><div class="lbl">PLAN LENGTH</div><div class="choices" id="commit"></div></div>
+
+<hr class="rule">
+<div id="opts"></div>
+</section>
+
+<aside class="rcpt" aria-live="polite">
+<div class="paper">
+<div class="c head1">CASH RECEIPT</div>
+<div class="c"><span class="badge">REELFORGE</span></div>
+<div class="c meta" id="kind"></div>
+<div class="dash"></div>
+<div id="lines"></div>
+<div class="dash"></div>
+<div id="disc"></div>
+<div class="ln tot"><span id="totLbl">TOTAL</span><span id="tot">$0</span></div>
+<div class="dash"></div>
+<div class="c sm">UP TO</div>
+<div class="c views" id="views">0</div>
+<div class="c sm" id="cpm"></div>
+<div class="tip" id="tip"></div>
+<div class="dash"></div>
+<ul class="terms">
+<li>You pay only for views delivered</li>
+<li>Never more than your budget</li>
+<li>Views over it are a free bonus</li>
+<li>Under 80% delivered? We keep posting next month, free</li>
+<li>No setup or agency fees</li>
+</ul>
+<div class="dash"></div>
+<div class="c sm" id="mins"></div>
+<div class="c thanks">THANK YOU</div>
+</div>
+<div class="edge" aria-hidden="true"></div>
+</aside>
+</div>
+</main>
+<script>
+{
+const OPTS=[
+ {id:'ch',name:'YOUR CHANNEL',color:'var(--butter)',desc:'Clips in your exact brand style, on your own channels',rate:2,amt:1000},
+ {id:'np',name:'NEW PAGES',color:'var(--coral)',desc:'Pages we create and run to reach new filmmakers',rate:2.5,amt:1000},
+ {id:'nw',name:'CREATOR NETWORK',color:'var(--mint)',desc:'Your clips across third-party pages',rate:2.5,amt:1000}];
+const S={stage:'test',commit:0};let lastTB=3000;
+const $=id=>document.getElementById(id);
+const usd=n=>'$'+Math.round(n).toLocaleString('en-US');
+const rt=n=>'$'+n.toFixed(2);
+const mv=k=>k>=1000?(k/1000).toFixed(2).replace(/\.?0+$/,'')+'M':Math.round(k)+'K';
+$('opts').innerHTML=OPTS.map(o=>`<div class="field"><label for="b_${o.id}"><b style="background:${o.color}">${o.name}</b><small>${o.desc}</small><div class="rt" id="r_${o.id}"></div></label><div class="amt"><span>$</span><input id="b_${o.id}" type="number" min="0" step="250" value="${o.amt}" inputmode="numeric"></div></div>`).join('');
+function fitTest(changedId){
+ const tb=Math.max(0,+$('tb').value||0);const ids=OPTS.map(o=>'b_'+o.id);
+ if(!changedId){const cur=ids.reduce((a,i)=>a+(+$(i).value||0),0);let left=tb;ids.forEach((i,k)=>{const v=k===ids.length-1?left:Math.max(0,Math.round((cur?(+$(i).value||0)*tb/cur:tb/ids.length)/50)*50);$(i).value=Math.max(0,v);left-=Math.max(0,v)});return}
+ const mine=Math.min(tb,Math.max(0,+$(changedId).value||0));const others=ids.filter(i=>i!==changedId);const rest=tb-mine;
+ const curO=others.reduce((a,i)=>a+(+$(i).value||0),0);let left=rest;
+ others.forEach((i,k)=>{const val=k===others.length-1?left:Math.round((curO?(+$(i).value||0)*rest/curO:rest/others.length)/50)*50;const v=Math.max(0,Math.min(left,val));$(i).value=v;left-=v});
+}
+$('stage').onclick=e=>{const b=e.target.closest('button');if(!b)return;S.stage=b.dataset.v;if(S.stage==='test')fitTest();render()};
+$('commit').onclick=e=>{const b=e.target.closest('button');if(!b)return;S.commit=+b.dataset.v;render()};
+$('tiers').onclick=e=>{const b=e.target.closest('button');if(!b)return;const t=+b.dataset.v;const cur=OPTS.reduce((a,o)=>a+(+$('b_'+o.id).value||0),0);
+ const tierOf=x=>x>=10000?2:x>=5000?1:0;const want=t===0?0:t===5000?1:2;if(tierOf(cur)===want)return;
+ const target=want===0?3000:t;const up=want>0;
+ OPTS.forEach(o=>{const x=cur?(+$('b_'+o.id).value||0)*target/cur/50:target/3/50;$('b_'+o.id).value=(up?Math.ceil(x):Math.floor(x))*50});render()};
+function render(){
+ const test=S.stage==='test';
+ $('stage').innerHTML=[['test','START WITH A TEST'],['plan','MONTHLY PLAN']].map(([v,n])=>`<button type="button" data-v="${v}" aria-pressed="${S.stage===v}">${n}</button>`).join('');
+ $('stageNote').textContent=test?'Try it for 30 days and see what performs before committing.':'An ongoing plan. Bigger budgets and longer plans get lower rates.';
+ $('testCtl').style.display=test?'':'none';$('tierCtl').style.display=test?'none':'';$('planCtl').style.display=test?'none':'';
+ $('commit').innerHTML=[[0,'MONTH TO MONTH'],[6,'6 MONTHS'],[12,'12 MONTHS']].map(([v,n])=>`<button type="button" data-v="${v}" aria-pressed="${S.commit===v}">${n}</button>`).join('');
+ const tb=Math.max(0,+$('tb').value||0);if(test&&tb!==lastTB)fitTest();lastTB=tb;
+ OPTS.forEach(o=>o.amt=Math.max(0,+$('b_'+o.id).value||0));
+ const total=OPTS.reduce((a,o)=>a+o.amt,0);
+ const bd=test?0:total>=10000?.5:total>=5000?.25:0;const cd=test?0:S.commit===12?.5:S.commit===6?.25:0;const d=bd+cd;
+ const ti=total>=10000?2:total>=5000?1:0;
+ $('tiers').innerHTML=[[0,'UNDER $5K','Standard rates'],[5000,'$5K–10K','−$0.25 per 1K'],[10000,'$10K+','−$0.50 per 1K']].map(([v,n,t],i)=>`<button type="button" data-v="${v}" aria-pressed="${!test&&i===ti}"><b>${n}</b><span>${t}</span></button>`).join('');
+ let v=0;const used=[];
+ OPTS.forEach(o=>{const r=o.rate-d;const views=o.amt/r;v+=views;if(o.amt)used.push({o,r,views});$('r_'+o.id).innerHTML=`${d?`<s>${rt(o.rate)}</s>`:''}${rt(r)} per 1,000 views${o.amt?` · up to ${mv(views)}`:''}`});
+ $('kind').textContent=test?'30-DAY TEST':`MONTHLY PLAN · ${S.commit?S.commit+' MONTHS':'MONTH TO MONTH'}`;
+ $('lines').innerHTML=used.length?used.map(u=>`<div class="ln"><span>${u.o.name}</span><span>${usd(u.o.amt)}</span></div><div class="ln sm"><span>${mv(u.views)} views @ ${rt(u.r)}/1K</span><span></span></div>`).join(''):'<div class="sm">Nothing on the slip yet.</div>';
+ const parts=[];if(bd)parts.push(`<div class="ln sm"><span>TIER ${total>=10000?'$10K+':'$5K–10K'}</span><span>−${rt(bd)}/1K</span></div>`);if(cd)parts.push(`<div class="ln sm"><span>${S.commit}-MONTH PLAN</span><span>−${rt(cd)}/1K</span></div>`);
+ $('disc').innerHTML=parts.join('');
+ $('totLbl').textContent=test?'TEST BUDGET':'MONTHLY BUDGET';$('tot').textContent=usd(total);
+ $('views').textContent=mv(v)+' VIEWS';
+ $('cpm').textContent=v?`about ${rt(total/v)} per 1,000 views`:'';
+ let tip='';
+ if(test&&tb<1500)tip='Tests start at $1,500.';
+ else if(test&&total!==tb)tip=`Lines add up to ${usd(total)}, not the ${usd(tb)} test budget.`;
+ else if(!test&&total&&total<1500)tip='Monthly plans start at $1,500.';
+ else if(!test&&total>=3500&&total<5000)tip=`Add ${usd(5000-total)} to reach $5,000 and every rate drops by $0.25.`;
+ else if(!test&&total>=7500&&total<10000)tip=`Add ${usd(10000-total)} to reach $10,000 and every rate drops by $0.50.`;
+ $('tip').textContent=tip;
+ $('mins').textContent=test?'TESTS FROM $1,500':'MONTHLY FROM $1,500 · YOUR CHANNEL ALONE FROM $1,000';
+}
+document.addEventListener('input',e=>{if(S.stage==='test'&&e.target.id&&e.target.id.startsWith('b_'))fitTest(e.target.id);render()});
+render();
+}
+</script>
+</body>
+</html>
