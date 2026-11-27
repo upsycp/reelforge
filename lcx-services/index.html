@@ -928,35 +928,15 @@ h2 em{font-style:normal;color:var(--acc)}
 .vb.ap-t{width:50px;height:50px;aspect-ratio:auto;transition:none}
 
 
-/* ---------- cover: AI pipeline ---------- */
+/* ---------- cover: pixel mosaic ---------- */
 #pedestal{display:none}
-#cnFloor{opacity:0;transition:opacity .8s .3s}.slide.on #cnFloor{opacity:.5}
-.lx-cnet{left:0;top:0;width:1600px;height:900px;z-index:5;pointer-events:none;overflow:visible}
-.lx-cnet .cp-h{font-family:var(--f-mono);font-weight:700;font-size:14px;letter-spacing:.2em;fill:rgba(255,248,242,.6);opacity:0}
-.slide.on .lx-cnet .cp-h{animation:cnFade .5s .5s forwards}
-.lx-cnet .cp-tr{fill:none;stroke:rgba(255,248,242,.3);stroke-width:3;stroke-linejoin:round;stroke-dasharray:500;stroke-dashoffset:500}
-.slide.on .lx-cnet .cp-tr{animation:cnDraw .8s cubic-bezier(.6,0,.2,1) forwards;animation-delay:calc(.7s + var(--i)*70ms)}
-@keyframes cnDraw{to{stroke-dashoffset:0}}
-@keyframes cnFade{to{opacity:1}}
-.lx-cnet .cp-pk{filter:drop-shadow(0 0 6px currentColor)}
-.lx-cnet .cp-card{opacity:0}
-.slide.on .lx-cnet .cp-in{animation:cpInL .6s cubic-bezier(.2,1.3,.4,1) forwards;animation-delay:calc(.4s + var(--i)*90ms)}
-.slide.on .lx-cnet .cp-out{animation:cpInR .6s cubic-bezier(.2,1.3,.4,1) forwards;animation-delay:calc(1.1s + var(--i)*90ms)}
-@keyframes cpInL{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
-@keyframes cpInR{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
-.lx-cnet .cp-bg{fill:#1E1A52;stroke:rgba(255,248,242,.22);stroke-width:2;animation:cpHit 5s infinite;animation-delay:var(--d)}
-@keyframes cpHit{0%{fill:#2A2470;stroke:var(--c);stroke-width:3}18%{fill:#2A2470;stroke:var(--c);stroke-width:3}30%,100%{fill:#1E1A52;stroke:rgba(255,248,242,.22);stroke-width:2}}
-.lx-cnet .cp-l{font-family:var(--f-display);font-weight:800;font-size:19px;fill:#FFF8F2;letter-spacing:-.01em}
-.lx-cnet .cp-s{font-family:var(--f-mono);font-weight:700;font-size:11px;fill:rgba(255,248,242,.6);letter-spacing:.04em}
-.lx-cnet .cp-chip{transform-box:fill-box;transform-origin:center}
-.slide.on .lx-cnet .cp-chip{animation:cpChip .7s cubic-bezier(.2,1.6,.4,1) backwards .25s}
-@keyframes cpChip{from{transform:scale(.3) rotate(-8deg);opacity:0}}
-.lx-cnet .cp-glow{fill:none;stroke:#3D2EF0;stroke-width:6;opacity:.6;animation:cpGlow 1s ease-out infinite;transform-box:fill-box;transform-origin:center}
-@keyframes cpGlow{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.16)}}
-.lx-cnet .cp-chip-t{font-family:var(--f-display);font-weight:800;font-size:46px;fill:#FFF8F2;letter-spacing:-.03em}
-.lx-cnet .cp-chip-s{font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:.2em;fill:#FFC93C}
-.lx-cnet .cp-prog{transform-box:fill-box;transform-origin:0 50%;animation:cpProg 1s linear infinite}
-@keyframes cpProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.lx-mosaic{left:0;top:322px;width:1600px;height:480px;z-index:5;pointer-events:none;opacity:0;transition:opacity .8s .2s}
+.slide.on .lx-mosaic{opacity:1}
+.lx-mlab{left:0;right:0;top:796px;z-index:6;display:flex;justify-content:center;align-items:center;gap:10px;font-family:var(--f-mono);font-size:15px;font-weight:700;letter-spacing:.2em;color:rgba(243,239,230,.75);pointer-events:none}
+.lx-mlab i{width:10px;height:10px;background:#FFC93C;animation:blinkc 1s steps(1) infinite}
+.lx-mlab span.sw{animation:mlab .4s cubic-bezier(.2,1,.3,1)}
+@keyframes mlab{from{opacity:0;transform:translateY(8px)}}
+.s1 .lx-stats,.s1 .tag2{z-index:8}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}
@@ -978,16 +958,7 @@ h2 em{font-style:normal;color:var(--acc)}
     <h1 class="abs title lxt">LCX <span>Services</span></h1>
     <p class="abs what">Repurpose <span>+</span> create with AI <span>+</span> build tools</p>
     <div class="abs lx-stats"><div><b data-count="23">23</b>services</div><div><b data-count="3">3</b>clusters</div><div><b data-count="55" data-suf="M">55M</b>audience reach</div></div>
-    <svg class="abs lx-cnet" viewBox="0 0 1600 900" aria-hidden="true"><defs><linearGradient id="cnFade" x1="0" y1="470" x2="0" y2="900" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".45" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity=".5"/></linearGradient><mask id="cnMask"><rect x="0" y="470" width="1600" height="430" fill="url(#cnFade)"/></mask></defs><g id="cnFloor" mask="url(#cnMask)" stroke="#3D2EF0" stroke-width="2"><line x1="674" y1="470" x2="-730" y2="900"/><line x1="688" y1="470" x2="-560" y2="900"/><line x1="702" y1="470" x2="-390" y2="900"/><line x1="716" y1="470" x2="-220" y2="900"/><line x1="730" y1="470" x2="-50" y2="900"/><line x1="744" y1="470" x2="120" y2="900"/><line x1="758" y1="470" x2="290" y2="900"/><line x1="772" y1="470" x2="460" y2="900"/><line x1="786" y1="470" x2="630" y2="900"/><line x1="800" y1="470" x2="800" y2="900"/><line x1="814" y1="470" x2="970" y2="900"/><line x1="828" y1="470" x2="1140" y2="900"/><line x1="842" y1="470" x2="1310" y2="900"/><line x1="856" y1="470" x2="1480" y2="900"/><line x1="870" y1="470" x2="1650" y2="900"/><line x1="884" y1="470" x2="1820" y2="900"/><line x1="898" y1="470" x2="1990" y2="900"/><line x1="912" y1="470" x2="2160" y2="900"/><line x1="926" y1="470" x2="2330" y2="900"/><g id="cnH"></g></g><text x="446" y="388" class="cp-h">YOU BRING</text><text x="952" y="372" class="cp-h">WE SHIP</text><path class="cp-tr" d="M656 445.0 H675 V505 H715" style="--i:0"/><path class="cp-tr" d="M656 545.0 H683 V545 H715" style="--i:1"/><path class="cp-tr" d="M656 645.0 H691 V585 H715" style="--i:2"/><path class="cp-tr" d="M656 745.0 H699 V625 H715" style="--i:3"/><path class="cp-tr" d="M885 497 H907 V429.0 H952" style="--i:4"/><path class="cp-tr" d="M885 528 H914 V511.0 H952" style="--i:5"/><path class="cp-tr" d="M885 560 H921 V593.0 H952" style="--i:6"/><path class="cp-tr" d="M885 592 H928 V675.0 H952" style="--i:7"/><path class="cp-tr" d="M885 623 H935 V757.0 H952" style="--i:8"/><g class="cp-chip">
-      <rect x="701" y="461" width="198" height="198" rx="34" class="cp-glow"/>
-      <rect x="705" y="502" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="705" y="542" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="705" y="582" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="705" y="622" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="883" y="494" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="883" y="525" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="883" y="557" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="883" y="589" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="883" y="620" width="12" height="6" rx="2" fill="#FFF8F2"/><rect x="737" y="465" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="737" y="643" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="765" y="465" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="765" y="643" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="793" y="465" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="793" y="643" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="821" y="465" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="821" y="643" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="849" y="465" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/><rect x="849" y="643" width="6" height="12" rx="2" fill="rgba(255,248,242,.5)"/>
-      <rect x="715" y="475" width="170" height="170" rx="26" fill="#3D2EF0" stroke="#FFF8F2" stroke-width="4"/>
-      <path d="M733 515h134M733 605h134" stroke="rgba(255,248,242,.25)" stroke-width="2" stroke-dasharray="3 6"/>
-      <text x="800.0" y="572.0" text-anchor="middle" class="cp-chip-t">LCX</text>
-      <text x="800.0" y="505" text-anchor="middle" class="cp-chip-s">AI ENGINE</text>
-      <rect x="745" y="615" width="110" height="8" rx="4" fill="rgba(255,248,242,.2)"/>
-      <rect x="745" y="615" width="110" height="8" rx="4" fill="#FFC93C" class="cp-prog"/>
-    </g><g class="cp-card cp-in" style="--i:0;--d:0.00s;--c:#FFC93C"><rect class="cp-bg" x="446" y="412" width="210" height="66" rx="16"/><rect x="458" y="426.0" width="38" height="38" rx="11" fill="#FFC93C"/><path d="M471 436.0 L486 445.0 L471 454.0 Z" fill="#16133F"/><text x="508" y="442.0" class="cp-l">Long video</text><text x="508" y="461.0" class="cp-s">42:10 · 1 file</text></g><g class="cp-card cp-in" style="--i:1;--d:1.00s;--c:#FF7A5C"><rect class="cp-bg" x="446" y="512" width="210" height="66" rx="16"/><rect x="458" y="526.0" width="38" height="38" rx="11" fill="#FF7A5C"/><path d="M468 539.0h18M468 545.0h18M468 551.0h11" stroke="#16133F" stroke-width="3" stroke-linecap="round"/><text x="508" y="542.0" class="cp-l">Brand brief</text><text x="508" y="561.0" class="cp-s">goals + audience</text></g><g class="cp-card cp-in" style="--i:2;--d:3.00s;--c:#A9A6FF"><rect class="cp-bg" x="446" y="612" width="210" height="66" rx="16"/><rect x="458" y="626.0" width="38" height="38" rx="11" fill="#A9A6FF"/><path d="M467 635.0h20v20h-20zM467 645.0h20M477 635.0v20" fill="none" stroke="#16133F" stroke-width="2.5"/><text x="508" y="642.0" class="cp-l">Blueprint</text><text x="508" y="661.0" class="cp-s">3BHK · PDF</text></g><g class="cp-card cp-in" style="--i:3;--d:4.00s;--c:#4FD6A6"><rect class="cp-bg" x="446" y="712" width="210" height="66" rx="16"/><rect x="458" y="726.0" width="38" height="38" rx="11" fill="#4FD6A6"/><path d="M469 754.0v-8M477 754.0v-16M485 754.0v-11" stroke="#16133F" stroke-width="4" stroke-linecap="round"/><text x="508" y="742.0" class="cp-l">Business data</text><text x="508" y="761.0" class="cp-s">sales + stock</text></g><g class="cp-card cp-out" style="--i:0;--d:1.25s;--c:#FFC93C"><rect class="cp-bg" x="952" y="396" width="210" height="66" rx="16"/><rect x="964" y="410.0" width="38" height="38" rx="11" fill="#FFC93C"/><rect x="971" y="420.0" width="6" height="18" rx="2" fill="#16133F"/><rect x="980" y="420.0" width="6" height="18" rx="2" fill="#16133F"/><rect x="989" y="420.0" width="6" height="18" rx="2" fill="#16133F"/><text x="1014" y="426.0" class="cp-l">5 reels</text><text x="1014" y="445.0" class="cp-s">cut + captioned</text></g><g class="cp-card cp-out" style="--i:1;--d:2.25s;--c:#FF7A5C"><rect class="cp-bg" x="952" y="478" width="210" height="66" rx="16"/><rect x="964" y="492.0" width="38" height="38" rx="11" fill="#FF7A5C"/><path d="M983 500.0 L986 508.0 L994 511.0 L986 514.0 L983 522.0 L980 514.0 L972 511.0 L980 508.0 Z" fill="#16133F"/><text x="1014" y="508.0" class="cp-l">AI ad film</text><text x="1014" y="527.0" class="cp-s">no shoot</text></g><g class="cp-card cp-out" style="--i:2;--d:3.25s;--c:#FF7A5C"><rect class="cp-bg" x="952" y="560" width="210" height="66" rx="16"/><rect x="964" y="574.0" width="38" height="38" rx="11" fill="#FF7A5C"/><rect x="971" y="585.0" width="24" height="16" rx="5" fill="#16133F"/><path d="M980 589.0 L988 593.0 L980 597.0 Z" fill="#FF7A5C"/><text x="1014" y="590.0" class="cp-l">Faceless channel</text><text x="1014" y="609.0" class="cp-s">auto-uploads daily</text></g><g class="cp-card cp-out" style="--i:3;--d:4.25s;--c:#A9A6FF"><rect class="cp-bg" x="952" y="642" width="210" height="66" rx="16"/><rect x="964" y="656.0" width="38" height="38" rx="11" fill="#A9A6FF"/><rect x="971" y="668.0" width="24" height="14" rx="5" fill="#16133F"/><circle cx="978" cy="675.0" r="3" fill="#A9A6FF"/><circle cx="988" cy="675.0" r="3" fill="#A9A6FF"/><text x="1014" y="672.0" class="cp-l">VR walkthrough</text><text x="1014" y="691.0" class="cp-s">before it is built</text></g><g class="cp-card cp-out" style="--i:4;--d:5.25s;--c:#4FD6A6"><rect class="cp-bg" x="952" y="724" width="210" height="66" rx="16"/><rect x="964" y="738.0" width="38" height="38" rx="11" fill="#4FD6A6"/><path d="M972 749.0h22v13h-12l-6 5v-5h-4z" fill="#16133F"/><text x="1014" y="754.0" class="cp-l">AI assistant</text><text x="1014" y="773.0" class="cp-s">live on WhatsApp</text></g><circle r="6" fill="#FFC93C" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M656 445.0 H675 V505 H715" keyPoints="0;0;1;1" keyTimes="0;0.000;0.120;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.000;0.120" calcMode="discrete"/></circle><circle r="6" fill="#FFC93C" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M885 497 H907 V429.0 H952" keyPoints="0;0;1;1" keyTimes="0;0.130;0.250;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.130;0.250" calcMode="discrete"/></circle><circle r="6" fill="#FF7A5C" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M656 545.0 H683 V545 H715" keyPoints="0;0;1;1" keyTimes="0;0.200;0.320;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.200;0.320" calcMode="discrete"/></circle><circle r="6" fill="#FF7A5C" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M885 528 H914 V511.0 H952" keyPoints="0;0;1;1" keyTimes="0;0.330;0.450;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.330;0.450" calcMode="discrete"/></circle><circle r="6" fill="#FF7A5C" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M656 545.0 H683 V545 H715" keyPoints="0;0;1;1" keyTimes="0;0.400;0.520;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.400;0.520" calcMode="discrete"/></circle><circle r="6" fill="#FF7A5C" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M885 560 H921 V593.0 H952" keyPoints="0;0;1;1" keyTimes="0;0.530;0.650;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.530;0.650" calcMode="discrete"/></circle><circle r="6" fill="#A9A6FF" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M656 645.0 H691 V585 H715" keyPoints="0;0;1;1" keyTimes="0;0.600;0.720;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.600;0.720" calcMode="discrete"/></circle><circle r="6" fill="#A9A6FF" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M885 592 H928 V675.0 H952" keyPoints="0;0;1;1" keyTimes="0;0.730;0.850;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.730;0.850" calcMode="discrete"/></circle><circle r="6" fill="#4FD6A6" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M656 745.0 H699 V625 H715" keyPoints="0;0;1;1" keyTimes="0;0.800;0.920;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.800;0.920" calcMode="discrete"/></circle><circle r="6" fill="#4FD6A6" class="cp-pk"><animateMotion dur="5.0s" repeatCount="indefinite" path="M885 623 H935 V757.0 H952" keyPoints="0;0;1;1" keyTimes="0;0.930;1.000;1" calcMode="linear"/><animate attributeName="opacity" dur="5.0s" repeatCount="indefinite" values="0;1;0" keyTimes="0;0.930;1.000" calcMode="discrete"/></circle></svg>
+    <canvas class="abs lx-mosaic" width="3200" height="960" aria-hidden="true"></canvas><div class="abs lx-mlab"><i></i><span>LCX SERVICES</span></div>
     <div class="abs tag2"><b>Services deck</b></div>
   </section>
 
@@ -1423,6 +1394,53 @@ const COVER_CARDS = [
     };
     requestAnimationFrame(tick);
   })();
+
+  // ---------- cover: pixel mosaic ----------
+  (function(){
+    const cv = document.querySelector('.lx-mosaic'); if(!cv) return;
+    const ctx = cv.getContext('2d'), lab = document.querySelector('.lx-mlab span');
+    const DPR = 2, W = 1600, H = 480, S = 11, cols = Math.ceil(W/S), rows = Math.ceil(H/S);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    const PAL = ['#FFC93C','#FFB25C','#FF4B3A','#3D2EF0','#F3EFE6','#FF7A5C','#4FD6A6'], CREAM = '#F3EFE6';
+    const rr = (c,x,y,w,h,r)=>{c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath();c.fill();};
+    const cut = (c,f)=>{c.globalCompositeOperation='destination-out';f();c.globalCompositeOperation='source-over';};
+    const SHAPES = [
+      {lab:'LCX SERVICES', draw:(c,w,h)=>{c.font='900 '+Math.round(h*.66)+'px "Bricolage Grotesque", Arial Black, sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText('L C X'.replace(/ /g,' '),w/2,h*.54);}},
+      {lab:'1 · REPURPOSING', draw:(c,w,h)=>{const r=h*.36,x=w/2+r*.15,y=h/2;c.beginPath();c.moveTo(x-r*.75,y-r);c.lineTo(x+r*.95,y);c.lineTo(x-r*.75,y+r);c.closePath();c.fill();}},
+      {lab:'2 · AI ASSETS', draw:(c,w,h)=>{const r=h*.38,x=w/2-h*.05,y=h/2+h*.03;c.beginPath();c.moveTo(x,y-r);c.quadraticCurveTo(x+r*.12,y-r*.12,x+r,y);c.quadraticCurveTo(x+r*.12,y+r*.12,x,y+r);c.quadraticCurveTo(x-r*.12,y+r*.12,x-r,y);c.quadraticCurveTo(x-r*.12,y-r*.12,x,y-r);c.fill();const q=r*.3,xx=x+r*.78,yy=y-r*.62;c.beginPath();c.moveTo(xx,yy-q);c.quadraticCurveTo(xx+q*.12,yy-q*.12,xx+q,yy);c.quadraticCurveTo(xx+q*.12,yy+q*.12,xx,yy+q);c.quadraticCurveTo(xx-q*.12,yy+q*.12,xx-q,yy);c.quadraticCurveTo(xx-q*.12,yy-q*.12,xx,yy-q);c.fill();}},
+      {lab:'3 · TECH', draw:(c,w,h)=>{const r=h*.23,x=w/2,y=h/2;rr(c,x-r,y-r,r*2,r*2,r*.22);for(let k=-2;k<=2;k++){const o=k*r*.38;c.fillRect(x+o-r*.07,y-r*1.5,r*.14,r*.5);c.fillRect(x+o-r*.07,y+r,r*.14,r*.5);c.fillRect(x-r*1.5,y+o-r*.07,r*.5,r*.14);c.fillRect(x+r,y+o-r*.07,r*.5,r*.14);}cut(c,()=>c.fillRect(x-r*.48,y-r*.48,r*.96,r*.96));}}
+    ];
+    function blur(a,rad){let o=a;for(let p=0;p<3;p++){const t=new Float32Array(o.length),u=new Float32Array(o.length);for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){let s=0,n=0;for(let d=-rad;d<=rad;d++){const xx=x+d;if(xx>=0&&xx<cols){s+=o[y*cols+xx];n++;}}t[y*cols+x]=s/n;}for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){let s=0,n=0;for(let d=-rad;d<=rad;d++){const yy=y+d;if(yy>=0&&yy<rows){s+=t[yy*cols+x];n++;}}u[y*cols+x]=s/n;}o=u;}return o;}
+    function sample(sh){const o=document.createElement('canvas');o.width=cols;o.height=rows;const c=o.getContext('2d');c.fillStyle='#fff';sh.draw(c,cols,rows);const a=c.getImageData(0,0,cols,rows).data,m=new Float32Array(cols*rows);for(let i=0;i<m.length;i++)m[i]=a[i*4+3]/255;const d=new Int16Array(m.length).fill(99),q=[];for(let i=0;i<m.length;i++)if(m[i]>.5){d[i]=0;q.push(i);}for(let h=0;h<q.length;h++){const i=q[h],x=i%cols,y=(i/cols)|0;for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const xx=x+dx,yy=y+dy;if(xx<0||yy<0||xx>=cols||yy>=rows)continue;const j=yy*cols+xx;if(d[j]>d[i]+1){d[j]=d[i]+1;q.push(j);}}}const MAP=[1,.8,.5,.26,.16,.13];const p=new Float32Array(m.length);for(let i=0;i<m.length;i++)p[i]=d[i]<MAP.length?MAP[d[i]]:0;return {m,p};}
+    let targets = null;
+    const cells = [];
+    for(let i=0;i<cols*rows;i++){const x=i%cols,y=(i/cols)|0;cells.push({x,y,r:Math.random(),col:PAL[(Math.random()*PAL.length)|0],delay:Math.random()*.5+(x/cols)*.5});}
+    let t0 = performance.now(), lastLab = '';
+    function frame(now){
+      if(cur===0 || !targets){
+        if(!targets) targets = SHAPES.map(sample);
+        const T = reduce ? 0 : (now-t0)/1000, HOLD=3.4, TR=1.5, per=HOLD+TR;
+        const idx = Math.floor(T/per)%SHAPES.length, ph = T%per, nx = (idx+1)%SHAPES.length, tr = Math.max(0,(ph-HOLD)/TR);
+        const L = SHAPES[tr>.5?nx:idx].lab;
+        if(L!==lastLab){ lastLab=L; lab.textContent=L; lab.classList.remove('sw'); void lab.offsetWidth; lab.classList.add('sw'); }
+        ctx.clearRect(0,0,W,H);
+        const A = targets[idx], B = targets[nx];
+        for(let i=0;i<cells.length;i++){
+          const c = cells[i]; if(!reduce && Math.random()<.004) c.col = PAL[(Math.random()*PAL.length)|0];
+          const k = Math.min(1,Math.max(0,(tr-c.delay*.6)/.4)), sc = Math.sin(k*Math.PI);
+          const m = A.m[i]*(1-k)+B.m[i]*k; let p = A.p[i]*(1-k)+B.p[i]*k; p = Math.max(0,p-sc*.25+sc*c.r*.3);
+          const px = c.x*S, py = c.y*S;
+          if(m>.55 && c.r>.1+sc*.5){ ctx.fillStyle = c.r<.06 ? c.col : CREAM; ctx.fillRect(px+1,py+1,S-2,S-2); }
+          else if(p>.62){ if(c.r<.55){ ctx.fillStyle=c.col; ctx.fillRect(px+1,py+1,S-2,S-2); } else { ctx.strokeStyle=c.col; ctx.lineWidth=2; ctx.strokeRect(px+2,py+2,S-4,S-4); if(c.r>.85){ ctx.fillStyle=CREAM; ctx.fillRect(px+4.5,py+4.5,S-9,S-9);} } }
+          else if(p>.34){ ctx.strokeStyle = c.r<.5 ? c.col : 'rgba(243,239,230,.5)'; ctx.lineWidth=1.5; ctx.strokeRect(px+3.5,py+3.5,S-7,S-7); }
+          else if(p>.12 && (p>.2 || c.r<.6)){ ctx.fillStyle = c.r<.3 ? c.col : 'rgba(243,239,230,.4)'; ctx.fillRect(px+S/2-1.5,py+S/2-1.5,3,3); }
+        }
+      }
+      requestAnimationFrame(frame);
+    }
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(()=>requestAnimationFrame(frame));
+  })();
+
   // ---------- LCX interactions ----------
   const tabs = document.getElementById('tabs');
   [['Overview','1'],['Repurposing','2,3'],['AI assets','4'],['Tech','5'],['Next step','6']].forEach(([t,r])=>{
